@@ -10,10 +10,6 @@ export default function Home() {
             Welcome to Loma Sports Club
           </motion.h1>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <button>About Us</button>
-            <button>Contact</button>
-          </motion.div>
         </div>
       </div>
     </div>
