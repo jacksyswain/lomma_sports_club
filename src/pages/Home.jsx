@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import jursey1 from "@/asserts/jersey1.png"
 import jursey2 from "@/asserts/jersey2.png"
 import jursey3 from "@/asserts/jersey3.png"
@@ -9,8 +10,10 @@ import hero2 from "@/asserts/hero2.png"
 import hero3 from "@/asserts/hero3.png"
 import hero4 from "@/asserts/hero4.png"
 import hero5 from "@/asserts/hero5.png"
+import ball from "@/asserts/ball.png"
+import bat from "@/asserts/bat.png"
 const images = [
-  hero1,hero2,hero3,hero4,hero5
+  hero1, hero2, hero3, hero4, hero5
 ];
 
 export default function Home() {
@@ -21,6 +24,7 @@ export default function Home() {
     target: ref,
     offset: ["start start", "end end"],
   });
+  const navigate = useNavigate();
   const jerseys = [jursey1, jursey2, jursey3];
 
   const [index, setIndex] = useState(0);
@@ -48,14 +52,45 @@ export default function Home() {
   return (
     <div ref={ref} className="bg-gradient-to-b from-black via-gray-900 to-white text-black overflow-hidden">
 
-      {/* 🔥 FLOATING CRICKET BALL */}
       <motion.img
-        src="/ball.png"
-        className="fixed w-16 z-50 pointer-events-none"
+        src={ball}
+        className="fixed w-12 z-50 pointer-events-none"
         style={{
-          y,
-          x: useTransform(scrollYProgress, [0, 1], [0, 300]),
-          rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
+          position: "fixed",
+
+          // 🧭 X PATH (left → right → hit → back left)
+          left: useTransform(
+            scrollYProgress,
+            [0, 0.4, 0.7, 1],
+            ["10%", "70%", "90%", "10%"]
+          ),
+
+          // 🧭 Y PATH (start → down → hit → bounce up)
+          top: useTransform(
+            scrollYProgress,
+            [0, 0.4, 0.7, 1],
+            ["70%", "90%", "80%", "10%"]
+          ),
+
+          rotate: useTransform(scrollYProgress, [0, 1], [0, 1080]),
+        }}
+      />
+      <motion.img
+        src={bat}
+        className="fixed w-32 right-[5%] top-[70%] z-40"
+        style={{
+          rotate: useTransform(scrollYProgress, [0.6, 0.75], [-20, 10]),
+        }}
+      />
+      <motion.div
+        className="fixed w-24 h-24 rounded-full bg-orange-400 blur-2xl z-30 pointer-events-none"
+        style={{
+          left: "80%",
+          top: "75%",
+
+          // 💥 show only at impact moment
+          scale: useTransform(scrollYProgress, [0.65, 0.7, 0.75], [0, 1.5, 0]),
+          opacity: useTransform(scrollYProgress, [0.65, 0.7, 0.75], [0, 1, 0]),
         }}
       />
 
@@ -169,6 +204,106 @@ export default function Home() {
             Where Passion Meets Performance 🚀
           </p>
         </motion.div>
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="py-20 bg-gray-100 px-6 md:px-16"
+      >
+        <h2 className="text-4xl font-bold text-center mb-10">
+          Our Achievements
+        </h2>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center mb-12">
+          {[
+            { label: "Matches Played", value: "120+" },
+            { label: "Wins", value: "85+" },
+            { label: "Trophies", value: "12" },
+            { label: "Players", value: "60+" },
+          ].map((item, i) => (
+            <div key={i} className="bg-white p-6 rounded-xl shadow">
+              <h3 className="text-2xl font-bold text-orange-500">{item.value}</h3>
+              <p className="text-gray-600">{item.label}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Slider */}
+        <div className="flex gap-6 overflow-x-auto scrollbar-hide">
+          {["/a1.jpg", "/a2.jpg", "/a3.jpg", "/a4.jpg"].map((img, i) => (
+            <div key={i} className="min-w-[250px] bg-white rounded-xl shadow">
+              <img src={img} className="h-40 w-full object-cover rounded-t-xl" />
+              <p className="p-4 font-semibold">Achievement {i + 1}</p>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, x: -80 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        className="py-20 px-6 md:px-16 bg-white grid md:grid-cols-2 gap-10 items-center"
+      >
+        <img src="/boys.jpg" className="rounded-2xl shadow-xl" />
+
+        <div>
+          <h2 className="text-4xl font-bold mb-4">
+            Lomma Boys Beyond Cricket
+          </h2>
+
+          <p className="text-gray-700 mb-4">
+            Lomma Sports Club is not just about cricket — it’s about brotherhood,
+            friendships, and unforgettable moments beyond the field.
+          </p>
+
+          <p className="text-gray-700 mb-4">
+            From team outings to celebrations, we build strong bonds that make us
+            stronger players on the field.
+          </p>
+
+          <p className="text-orange-500 font-semibold">
+            More Than a Team — A Family ❤️
+          </p>
+        </div>
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="py-20 bg-white px-6 md:px-16 text-center"
+      >
+        <h2 className="text-4xl font-bold mb-10">
+          Our Teams
+        </h2>
+
+        <div className="grid md:grid-cols-4 gap-8">
+
+          {[
+            { name: "Lomma CC", type: "Main Team" },
+            { name: "Lomma Lions CC", type: "Competitive Squad" },
+            { name: "Lomma Kings XI", type: "Elite Players" },
+            { name: "Lomma Panthers", type: "Rising Stars" },
+          ].map((team, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              className="p-6 bg-gray-100 rounded-2xl shadow-lg hover:shadow-2xl transition"
+            >
+              <h3 className="text-xl font-bold mb-2">{team.name}</h3>
+              <p className="text-gray-600 mb-4">{team.type}</p>
+
+              <button
+                onClick={() => navigate("/teams")}
+                className="px-4 py-2 rounded-full bg-orange-500 text-black font-semibold hover:bg-orange-400 transition"
+              >
+                Learn More
+              </button>
+            </motion.div>
+          ))}
+
+        </div>
       </motion.section>
 
       {/* 🎥 VIDEOS */}
