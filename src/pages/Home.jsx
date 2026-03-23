@@ -4,7 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import jursey1 from "@/asserts/jersey1.png"
 import jursey2 from "@/asserts/jersey2.png"
-import jursey3 from "@/asserts/jersey3.png"
+
 import manager1 from "@/asserts/manager1.png"
 import manager4 from "@/asserts/manager4.jpeg"
 import manager3 from "@/asserts/manager3.jpeg"
@@ -53,7 +53,7 @@ export default function Home() {
     offset: ["start start", "end end"],
   });
   const navigate = useNavigate();
-  const jerseys = [jursey1, jursey2, jursey3];
+  const jerseys = [jursey1, jursey2];
 
   const [index, setIndex] = useState(0);
 
@@ -420,7 +420,7 @@ export default function Home() {
               {/* Image */}
               <img
                 src={person.img}
-                className="w-full h-48 object-cover rounded-xl"
+                className="w-full h-56 object-contain bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-3"
               />
 
               {/* Info */}
