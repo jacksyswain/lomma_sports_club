@@ -362,8 +362,8 @@ export default function Home() {
         <h2 className="text-4xl font-bold mb-10">Match Highlights</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <iframe className="w-full h-64 rounded-xl" src="https://www.youtube.com/embed/mfoQ810Tf6M" />
-          <iframe className="w-full h-64 rounded-xl" src="https://www.youtube.com/embed/0qKuPS1zuWo" />
+          <iframe className="w-full h-64 rounded-xl" src="https://www.youtube.com/embed/Ti9ko08SEaI" />
+          <iframe className="w-full h-64 rounded-xl" src="https://www.youtube.com/embed/k7zZz95-Ds0" />
         </div>
       </motion.section>
 
