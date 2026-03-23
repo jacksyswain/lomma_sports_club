@@ -399,9 +399,9 @@ export default function Home() {
               name: "rajeev Ranjan Swain",
               role: "Team Manager",
               img: manager3,
-              fb: "#",
-              insta: "#",
-              mail: "mailto:test@gmail.com",
+              fb: "https://www.facebook.com/rajeev.swain.5",
+              insta: "https://www.instagram.com/rajeevswain17/?hl=en",
+              mail: "rrswn1986@gmail.com" ,
             },
             {
               name: "gaurav kumar Singh",
