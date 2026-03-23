@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import jursey1 from "@/asserts/jersey1.png"
 import jursey2 from "@/asserts/jersey2.png"
 import jursey3 from "@/asserts/jersey3.png"
+import manager1 from "@/asserts/manager1.png"
+import manager4 from "@/asserts/manager4.jpeg"
+import manager3 from "@/asserts/manager3.png"
 import hero1 from "@/asserts/hero1.png"
 import hero2 from "@/asserts/hero2.png"
 import hero3 from "@/asserts/hero3.png"
@@ -12,12 +15,36 @@ import hero4 from "@/asserts/hero4.png"
 import hero5 from "@/asserts/hero5.png"
 import ball from "@/asserts/ball.png"
 import bat from "@/asserts/bat.png"
+import boys1 from "@/asserts/boys1.png"
+import boys2 from "@/asserts/boys2.png"
+import boys3 from "@/asserts/boys3.png"
+import boys4 from "@/asserts/boys4.png"
+import boys5 from "@/asserts/boys5.png"
+import boys6 from "@/asserts/boys6.png"
+import a1 from "@/asserts/a1.png"
+import a2 from "@/asserts/a2.png"
+import a3 from "@/asserts/a3.png"
+import a4 from "@/asserts/a4.png"
+import { Facebook, Instagram, Mail } from "lucide-react";
 const images = [
   hero1, hero2, hero3, hero4, hero5
 ];
 
+const boysImages = [
+  boys1, boys2, boys3, boys4, boys5, boys6
+];
+
 export default function Home() {
   const [currentVideo, setCurrentVideo] = useState(0);
+  const [boysIndex, setBoysIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBoysIndex((prev) => (prev + 1) % boysImages.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const ref = useRef();
   const { scrollYProgress } = useScroll({
@@ -232,9 +259,14 @@ export default function Home() {
 
         {/* Slider */}
         <div className="flex gap-6 overflow-x-auto scrollbar-hide">
-          {["/a1.jpg", "/a2.jpg", "/a3.jpg", "/a4.jpg"].map((img, i) => (
+          {[a1, a2, a3, a4].map((img, i) => (
             <div key={i} className="min-w-[250px] bg-white rounded-xl shadow">
-              <img src={img} className="h-40 w-full object-cover rounded-t-xl" />
+
+              <img
+                src={img}
+                className="h-48 w-full object-contain bg-gray-100 rounded-t-xl"
+              />
+
               <p className="p-4 font-semibold">Achievement {i + 1}</p>
             </div>
           ))}
@@ -246,7 +278,21 @@ export default function Home() {
         whileInView={{ opacity: 1, x: 0 }}
         className="py-20 px-6 md:px-16 bg-white grid md:grid-cols-2 gap-10 items-center"
       >
-        <img src="/boys.jpg" className="rounded-2xl shadow-xl" />
+        <div className="relative w-full h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-xl">
+
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={boysIndex}
+              src={boysImages[boysIndex]}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.2 }}
+              transition={{ duration: 0.8 }}
+              className="absolute w-full h-full object-cover"
+            />
+          </AnimatePresence>
+
+        </div>
 
         <div>
           <h2 className="text-4xl font-bold mb-4">
@@ -282,7 +328,7 @@ export default function Home() {
 
           {[
             { name: "Lomma CC", type: "Main Team" },
-            { name: "Lomma Lions CC", type: "Competitive Squad" },
+            { name: "Lomma Gold Monks ", type: "Competitive Squad" },
             { name: "Lomma Kings XI", type: "Elite Players" },
             { name: "Lomma Panthers", type: "Rising Stars" },
           ].map((team, i) => (
@@ -315,26 +361,90 @@ export default function Home() {
         <h2 className="text-4xl font-bold mb-10">Match Highlights</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <iframe className="w-full h-64 rounded-xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ" />
-          <iframe className="w-full h-64 rounded-xl" src="https://www.youtube.com/embed/dQw4w9WgXcQ" />
+          <iframe className="w-full h-64 rounded-xl" src="https://www.youtube.com/embed/mfoQ810Tf6M" />
+          <iframe className="w-full h-64 rounded-xl" src="https://www.youtube.com/embed/0qKuPS1zuWo" />
         </div>
       </motion.section>
 
-      {/* 👨‍💼 FOUNDERS */}
       <motion.section
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        className="py-20 text-center bg-white"
+        className="py-20 bg-white px-6 md:px-16 text-center"
       >
-        <h2 className="text-4xl font-bold mb-10">Founders</h2>
+        <h2 className="text-4xl font-bold mb-12">
+          Club Management
+        </h2>
 
-        <div className="flex justify-center gap-10">
-          {["/founder1.jpg", "/founder2.jpg"].map((img, i) => (
-            <div key={i}>
-              <img src={img} className="w-40 h-40 rounded-xl object-cover shadow-lg" />
-              <p className="mt-2 font-semibold">Founder {i + 1}</p>
-            </div>
+        <div className="grid md:grid-cols-4 gap-8">
+
+          {[
+            {
+              name: "Najam Ul haq",
+              role: "Club President",
+              img: manager1,
+              fb: "#",
+              insta: "#",
+              mail: "mailto:test@gmail.com",
+            },
+            {
+              name: " Sajid Ahmed",
+              role: "Vice President",
+              img: "/manager2.jpg",
+              fb: "#",
+              insta: "#",
+              mail: "mailto:test@gmail.com",
+            },
+            {
+              name: "rajeev Ranjan Swain",
+              role: "Team Manager",
+              img: manager3,
+              fb: "#",
+              insta: "#",
+              mail: "mailto:test@gmail.com",
+            },
+            {
+              name: "gaurav kumar Singh",
+              role: "Coordinator",
+              img: manager4,
+              fb: "#",
+              insta: "#",
+              mail: "mailto:test@gmail.com",
+            },
+          ].map((person, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -10 }}
+              className="bg-gray-100 rounded-2xl shadow-lg overflow-hidden p-4"
+            >
+              {/* Image */}
+              <img
+                src={person.img}
+                className="w-full h-48 object-cover rounded-xl"
+              />
+
+              {/* Info */}
+              <h3 className="mt-4 font-bold text-lg">{person.name}</h3>
+              <p className="text-gray-500 text-sm">{person.role}</p>
+
+              {/* Social Links */}
+              <div className="flex justify-center gap-4 mt-4">
+
+                <a href={person.fb} target="_blank">
+                  <Facebook size={18} className="hover:text-orange-500 transition" />
+                </a>
+
+                <a href={person.insta} target="_blank">
+                  <Instagram size={18} className="hover:text-orange-500 transition" />
+                </a>
+
+                <a href={person.mail}>
+                  <Mail size={18} className="hover:text-orange-500 transition" />
+                </a>
+
+              </div>
+            </motion.div>
           ))}
+
         </div>
       </motion.section>
 
