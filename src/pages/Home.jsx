@@ -8,6 +8,7 @@ import jursey3 from "@/asserts/jersey3.png"
 import manager1 from "@/asserts/manager1.png"
 import manager4 from "@/asserts/manager4.jpeg"
 import manager3 from "@/asserts/manager3.png"
+import manager2 from "@/asserts/manager2.png"
 import hero1 from "@/asserts/hero1.png"
 import hero2 from "@/asserts/hero2.png"
 import hero3 from "@/asserts/hero3.png"
@@ -389,7 +390,7 @@ export default function Home() {
             {
               name: " Sajid Ahmed",
               role: "Vice President",
-              img: "/manager2.jpg",
+              img: manager2,
               fb: "#",
               insta: "#",
               mail: "mailto:test@gmail.com",
