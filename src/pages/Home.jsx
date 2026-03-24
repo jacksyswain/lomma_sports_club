@@ -8,7 +8,7 @@ import jursey3 from "@/asserts/jersey3.png"
 import partner1 from "@/asserts/partner1.png"
 import partner2 from "@/asserts/partner2.png"
 import partner3 from "@/asserts/partner3.png"
-
+import training from "@/asserts/training.png"
 import manager1 from "@/asserts/manager1.png"
 import manager4 from "@/asserts/manager4.jpeg"
 import manager3 from "@/asserts/manager3.jpeg"
@@ -148,13 +148,13 @@ export default function Home() {
         <div className="relative z-10 flex flex-col justify-center items-center text-center h-full px-6 text-white">
 
           <motion.h1
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent"
-          >
-            LOMMA Sports Club
-          </motion.h1>
+          initial={{ opacity: 0, y: 60 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-5xl md:text-7xl font-extrabold leading-tight bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent"
+        >
+          Welcome to <br /> LOMMA Sports Club
+        </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
@@ -162,7 +162,8 @@ export default function Home() {
             transition={{ delay: 0.5 }}
             className="mt-6 text-lg text-gray-300 max-w-2xl"
           >
-            Building champions since 2020. Passion, discipline and teamwork define our journey.
+           More than a cricket club — a community built on passion, discipline, 
+          and the relentless pursuit of excellence since 2020.
           </motion.p>
 
           <motion.div
@@ -171,13 +172,19 @@ export default function Home() {
             transition={{ delay: 1 }}
             className="mt-8 flex gap-4"
           >
-            <button className="px-8 py-3 rounded-full bg-orange-500 text-black font-semibold hover:bg-orange-400 transition transform hover:scale-105">
-              Explore Team
-            </button>
+              <button
+            onClick={() => navigate("/teams")}
+            className="px-8 py-3 rounded-full bg-orange-500 text-black font-semibold hover:bg-orange-400 transition transform hover:scale-105"
+          >
+            Explore Teams
+          </button>
 
-            <button className="px-8 py-3 rounded-full border border-white hover:bg-white hover:text-black transition transform hover:scale-105">
-              Join Club
-            </button>
+          <button
+            onClick={() => navigate("/about")}
+            className="px-8 py-3 rounded-full border border-white hover:bg-white hover:text-black transition transform hover:scale-105"
+          >
+            Join Club
+          </button>
           </motion.div>
 
         </div>
@@ -467,7 +474,7 @@ export default function Home() {
 
           {/* 🔥 LEFT - IMAGE */}
           <motion.img
-            src="/training.jpg"
+            src={training}
             whileHover={{ scale: 1.05 }}
             className="w-full max-w-md mx-auto rounded-2xl shadow-xl object-cover"
           />
