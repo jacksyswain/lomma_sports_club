@@ -332,10 +332,10 @@ export default function Home() {
         <div className="grid md:grid-cols-4 gap-8">
 
           {[
-            { name: "Lomma CC", type: "Main Team" },
-            { name: "Lomma Gold Monks ", type: "Competitive Squad" },
-            { name: "Lomma Kings XI", type: "Elite Players" },
-            { name: "Lomma Panthers", type: "Rising Stars" },
+            { name: "Lomma CC", type: "Lomma CC" },
+            { name: "Lomma Gold Monks ", type: "Lomma Gold Monks" },
+            { name: "Lomma Kings XI", type: "Lomma Kings XI" },
+            { name: "Lomma Panthers", type: "Lomma Panthers" },
           ].map((team, i) => (
             <motion.div
               key={i}
