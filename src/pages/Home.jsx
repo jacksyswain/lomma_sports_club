@@ -385,7 +385,7 @@ export default function Home() {
           {[
             {
               name: "Najam Ul haq",
-              role: "Club President",
+              
               img: manager1,
               fb: "#",
               insta: "#",
@@ -393,7 +393,7 @@ export default function Home() {
             },
             {
               name: " Sajid Ahmed",
-              role: "Vice President",
+              
               img: manager2,
               fb: "#",
               insta: "#",
@@ -401,7 +401,7 @@ export default function Home() {
             },
             {
               name: "rajeev Ranjan Swain",
-              role: "Team Manager",
+              
               img: manager3,
               fb: "https://www.facebook.com/rajeev.swain.5",
               insta: "https://www.instagram.com/rajeevswain17/?hl=en",
@@ -409,7 +409,7 @@ export default function Home() {
             },
             {
               name: "gaurav kumar Singh",
-              role: "Coordinator",
+              
               img: manager4,
               fb: "#",
               insta: "#",
@@ -429,7 +429,7 @@ export default function Home() {
 
               {/* Info */}
               <h3 className="mt-4 font-bold text-lg">{person.name}</h3>
-              <p className="text-gray-500 text-sm">{person.role}</p>
+              
 
               {/* Social Links */}
               <div className="flex justify-center gap-4 mt-4">
