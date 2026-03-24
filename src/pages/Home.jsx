@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import jursey1 from "@/asserts/jersey1.png"
 import jursey2 from "@/asserts/jersey2.png"
+import jursey3 from "@/asserts/jersey3.png"
 
 import manager1 from "@/asserts/manager1.png"
 import manager4 from "@/asserts/manager4.jpeg"
@@ -53,7 +54,7 @@ export default function Home() {
     offset: ["start start", "end end"],
   });
   const navigate = useNavigate();
-  const jerseys = [jursey1, jursey2];
+  const jerseys = [jursey1, jursey2, jursey3];
 
   const [index, setIndex] = useState(0);
 
@@ -401,7 +402,7 @@ export default function Home() {
               img: manager3,
               fb: "https://www.facebook.com/rajeev.swain.5",
               insta: "https://www.instagram.com/rajeevswain17/?hl=en",
-              mail: "rrswn1986@gmail.com" ,
+              mail: "rrswn1986@gmail.com",
             },
             {
               name: "gaurav kumar Singh",
@@ -469,14 +470,58 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
-        className="py-20 px-6 md:px-16 text-center bg-black text-white"
+        className="py-24 px-6 md:px-16 text-center bg-gradient-to-b from-black via-gray-900 to-black text-white"
       >
-        <h2 className="text-4xl font-bold mb-6">Our Journey</h2>
+        {/* 🔥 TITLE */}
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent">
+          Our Journey
+        </h2>
 
-        <p className="max-w-2xl mx-auto text-gray-300">
-          Founded in 2020, Lomma Sports Club has rapidly grown into a competitive cricket institution.
-          Our journey is driven by passion, teamwork, and excellence.
+        <p className="max-w-2xl mx-auto text-gray-300 mb-16 text-lg">
+          From humble beginnings in 2020 to becoming a rising cricket force,
+          Lomma Sports Club has built its legacy through passion, unity, and relentless dedication.
         </p>
+
+        {/* 🔥 TIMELINE */}
+        <div className="grid md:grid-cols-3 gap-8">
+
+          {[
+            {
+              year: "2020",
+              title: "Foundation",
+              desc: "Lomma Sports Club was established with a vision to build a strong cricket community.",
+            },
+            {
+              year: "2022",
+              title: "Growth Phase",
+              desc: "Expanded teams, improved training, and participated in competitive leagues.",
+            },
+            {
+              year: "2024",
+              title: "Rising Force",
+              desc: "Achieved major wins and became a recognized name in the cricket circuit.",
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -10 }}
+              className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl border border-white/10 hover:border-orange-400 transition"
+            >
+              <h3 className="text-orange-400 font-bold text-xl mb-2">
+                {item.year}
+              </h3>
+
+              <h4 className="text-lg font-semibold mb-2">
+                {item.title}
+              </h4>
+
+              <p className="text-gray-300 text-sm">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
+
+        </div>
       </motion.section>
 
       {/* 🤝 PARTNERS */}
