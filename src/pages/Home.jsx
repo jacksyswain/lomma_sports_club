@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import jursey1 from "@/asserts/jersey1.png"
 import jursey2 from "@/asserts/jersey2.png"
 import jursey3 from "@/asserts/jersey3.png"
+import partner1 from "@/asserts/partner1.png"
+import partner2 from "@/asserts/partner2.png"
+import partner3 from "@/asserts/partner3.png"
 
 import manager1 from "@/asserts/manager1.png"
 import manager4 from "@/asserts/manager4.jpeg"
@@ -454,15 +457,44 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0, x: 80 }}
         whileInView={{ opacity: 1, x: 0 }}
-        className="py-20 px-6 md:px-16 bg-gray-100"
+        className="py-24 px-6 md:px-16 bg-gradient-to-b from-gray-100 to-white"
       >
-        <h2 className="text-4xl font-bold text-center mb-10">Our Coach</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">
+          Coaching & Training
+        </h2>
 
-        <div className="flex flex-col md:flex-row items-center gap-10">
-          <img src="/coach.jpg" className="w-60 h-60 rounded-xl object-cover shadow-lg" />
-          <p className="max-w-xl text-gray-700">
-            Our coach brings elite-level expertise and mentorship to develop world-class players.
-          </p>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+
+          {/* 🔥 LEFT - IMAGE */}
+          <motion.img
+            src="/training.jpg"
+            whileHover={{ scale: 1.05 }}
+            className="w-full max-w-md mx-auto rounded-2xl shadow-xl object-cover"
+          />
+
+          {/* 🔥 RIGHT - TEXT */}
+          <div>
+            <h3 className="text-2xl font-semibold mb-4 text-orange-500">
+              Building Players. Building Champions.
+            </h3>
+
+            <p className="text-gray-700 mb-4 leading-relaxed">
+              At Lomma Sports Club, we focus on structured training programs,
+              teamwork, and continuous improvement. Even without a dedicated
+              full-time coach, our players grow through shared knowledge,
+              discipline, and match experience.
+            </p>
+
+            <p className="text-gray-700 mb-4 leading-relaxed">
+              Senior players guide juniors, creating a strong learning
+              environment where everyone contributes to each other's success.
+            </p>
+
+            <p className="font-semibold text-gray-900">
+              Driven by Passion. Powered by Teamwork.
+            </p>
+          </div>
+
         </div>
       </motion.section>
 
@@ -528,14 +560,34 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="py-20 px-6 md:px-16 text-center bg-white"
+        className="py-24 px-6 md:px-16 text-center bg-gradient-to-b from-white to-gray-100"
       >
-        <h2 className="text-4xl font-bold mb-10">Our Partners</h2>
+        {/* 🔥 TITLE */}
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          Our Partners
+        </h2>
 
-        <div className="flex flex-wrap justify-center gap-8">
-          {["/partner1.png", "/partner2.png", "/partner3.png"].map((img, i) => (
-            <img key={i} src={img} className="h-12 grayscale hover:grayscale-0 transition" />
+        <p className="text-gray-600 max-w-xl mx-auto mb-12">
+          We proudly collaborate with organizations that support our vision,
+          helping us grow and achieve excellence on and off the field.
+        </p>
+
+        {/* 🔥 PARTNER CARDS */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+          {[partner1, partner2, partner3, partner1].map((img, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -8, scale: 1.05 }}
+              className="bg-white/70 backdrop-blur-lg border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl transition flex items-center justify-center"
+            >
+              <img
+                src={img}
+                className="h-12 object-contain grayscale hover:grayscale-0 transition duration-300"
+              />
+            </motion.div>
           ))}
+
         </div>
       </motion.section>
 
