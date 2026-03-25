@@ -128,6 +128,7 @@ export default function About() {
       </section>
 
       {/* 📍 CONTACT SECTION */}
+      {/* 📍 CONTACT SECTION */}
       <section className="py-24 px-6 md:px-16 bg-gradient-to-b from-black to-gray-900">
 
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
@@ -136,38 +137,42 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
 
-          {/* 📍 LOCATION */}
+          {/* 📍 LOCATION + COMPANY INFO */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
           >
             <h3 className="text-2xl font-semibold mb-4 text-orange-400">
-              Where We Are
+              Official Information
             </h3>
 
-            <p className="text-gray-300 mb-4 leading-relaxed">
-              Lomma Sports Club is based in Sweden, offering a professional
-              cricketing environment for players of all levels.
-            </p>
+            <div className="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-3 text-sm">
 
-            <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
-              <p className="text-sm text-gray-300 leading-relaxed">
-                📍 Lomma Cricket Ground <br />
-                Limhamnsfältet <br />
-                Malmö, Sweden
-              </p>
+              <p><span className="text-gray-400">Legal Name:</span> LOMMA SPORTS CLUB</p>
+              <p><span className="text-gray-400">Org No:</span> 802530-7573</p>
+              <p><span className="text-gray-400">Registered:</span> 2020-05-29</p>
+              <p><span className="text-gray-400">Type:</span> Non-profit association</p>
+              <p><span className="text-gray-400">Industry:</span> 93120 Sports Clubs</p>
 
-              <p className="mt-4 text-sm text-gray-300">
-                📧 contact@lomma.com
-              </p>
+              <div className="pt-4 border-t border-white/10">
+                <p className="text-gray-400 mb-1">Address:</p>
+                <p>
+                  c/o NAJAM UL HAQUE <br />
+                  Nils Fredrikssongatan 11 b <br />
+                  Apartment 1201 <br />
+                  233 32 Svedala
+                </p>
+              </div>
 
-              <p className="text-sm text-gray-300">
-                📞 +46 XXX XXX XXX
-              </p>
+              <div className="pt-4 border-t border-white/10">
+                <p>📧 lommasportsclub@gmail.com</p>
+                <p>📧 haqnajam@gmail.com</p>
+              </div>
+
             </div>
           </motion.div>
 
-          {/* 📩 FORM */}
+          {/* 📩 CONTACT FORM */}
           <motion.form
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
