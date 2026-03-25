@@ -1,112 +1,560 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 
 const teamsData = [
   {
     name: "Lomma CC",
-    players: ["Player 1", "Player 2", "Player 3", "Player 4"],
-    previous: ["Won vs Kings XI", "Lost vs Panthers"],
-    upcoming: ["vs Lions CC - 25 Mar", "vs Panthers - 30 Mar"],
+
+    players: [
+      { name: "Aamir Iqbal", link: "#" },
+      { name: "Mohsin Aziz", link: "#" },
+      { name: "Kumar Gauravsingh", link: "#" },
+      { name: "Ram Nanduri", link: "#" },
+      { name: "Sharim Afzal", link: "#" },
+      { name: "Nidhin Sudhakaran", link: "#" },
+      { name: "Abdul Khan", link: "#" },
+      { name: "Adnan Khan", link: "#" },
+      { name: "Ahmed Mehmood", link: "#" },
+      { name: "Ans Ahmad", link: "#" },
+      { name: "Arshad Khan", link: "#" },
+      { name: "Bikram Bhatia", link: "#" },
+      { name: "Bilal Ahmad", link: "#" },
+      { name: "Chaitanya Palley", link: "#" },
+      { name: "Daud Khan", link: "#" },
+      { name: "Farooq Asim", link: "#" },
+      { name: "Fazal Rahman", link: "#" },
+      { name: "Gibin Thomas", link: "#" },
+      { name: "Gopalakrishnan Srinivasan", link: "#" },
+      { name: "Hassan Khan", link: "#" },
+      { name: "Imran Nabeei", link: "#" },
+      { name: "Irfan Mehmood", link: "#" },
+      { name: "Jawad Ahmad", link: "#" },
+      { name: "Mohan Kona", link: "#" },
+      { name: "Mohsin Ahmed", link: "#" },
+      { name: "Mubarak Ahmed", link: "#" },
+      { name: "Mubashar Tahir", link: "#" },
+      { name: "Muhammad Toheed", link: "#" },
+      { name: "Nadir Bajwa", link: "#" },
+      { name: "Najam Ul-Haque", link: "#" },
+      { name: "Nasir Iqbal", link: "#" },
+      { name: "Nayaab Omar", link: "#" },
+      { name: "Prashant Kumar", link: "#" },
+      { name: "Rajat Varshney", link: "#" },
+      { name: "Rajeev Swain", link: "#" },
+      { name: "Rizwan Afzal", link: "#" },
+      { name: "Rohan Raghunath", link: "#" },
+      { name: "Sajid Ahmed", link: "#" },
+      { name: "Satya Sahoo", link: "#" },
+      { name: "Shabeer Shafiq", link: "#" },
+      { name: "Shekhar Jadhav", link: "#" },
+      { name: "Sriram Iyer", link: "#" },
+      { name: "Tahir Mukhtar", link: "#" },
+      { name: "Usman Khalid", link: "#" },
+      { name: "Yahya Mubashir", link: "#" },
+      { name: "Zulkifl Rashid", link: "#" },
+    ],
+
+    previous: [
+      {
+        date: "4 Oct 2025",
+        match: "Landskrona CC vs Lomma CC",
+        result: "Abandoned",
+        score: "0/0 vs 0/0",
+      },
+      {
+        date: "19 Jul 2025",
+        match: "Kristianstad CC vs Lomma CC",
+        result: "Lomma CC won by 10 Wickets",
+        score: "130/8 vs 132/0",
+      },
+      {
+        date: "19 Jul 2025",
+        match: "Lomma CC vs Göteborgs CC (3rd XI)",
+        result: "Forfeited (Winner: Lomma CC)",
+        score: "0/0 vs 0/0",
+      },
+      {
+        date: "6 Jul 2025",
+        match: "Lomma CC vs UNITED CC",
+        result: "UNITED CC won by 6 Wickets",
+        score: "159/10 vs 161/4",
+      },
+      {
+        date: "15 Jun 2025",
+        match: "Evergreen B vs Lomma CC",
+        result: "Lomma CC won by 6 Wickets",
+        score: "140/8 vs 141/4",
+      },
+      {
+        date: "8 Jun 2025",
+        match: "Ängelholms CF vs Lomma CC",
+        result: "Abandoned",
+        score: "6/0 vs 0/0",
+      },
+      {
+        date: "25 May 2025",
+        match: "Malmö CC 2nd XI vs Lomma CC",
+        result: "Lomma CC won by 9 Wickets",
+        score: "110/9 vs 114/1",
+      },
+      {
+        date: "18 May 2025",
+        match: "Lomma CC vs Ariana CC 2nd XI",
+        result: "Lomma CC won by 11 Runs",
+        score: "168/9 vs 157/8",
+      },
+      {
+        date: "11 May 2025",
+        match: "Lomma CC vs Helsingborg Stars",
+        result: "Lomma CC won by 55 Runs",
+        score: "135/10 vs 80/10",
+      },
+      {
+        date: "4 May 2025",
+        match: "LUNDCC A vs Lomma CC",
+        result: "LUNDCC A won by 18 Runs",
+        score: "143/9 vs 125/10",
+      },
+    ],
+
+    upcoming: [
+      {
+        date: "4 Jul 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "UNITED Shaheens vs Lomma CC",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 2",
+      },
+      {
+        date: "5 Jul 2026",
+        day: "Sunday",
+        time: "2:00 PM",
+        match: "Lugi Blazers vs Lomma CC",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 2",
+      },
+      {
+        date: "11 Jul 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Malmo Kings vs Lomma CC",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 2",
+      },
+      {
+        date: "12 Jul 2026",
+        day: "Sunday",
+        time: "2:00 PM",
+        match: "Malmöhus 1st XI vs Lomma CC",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 2",
+      },
+      {
+        date: "18 Jul 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Ariana CC 2nd XI vs Lomma CC",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 1",
+      },
+      {
+        date: "25 Jul 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Nordic CC vs Lomma CC",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 1",
+      },
+      {
+        date: "1 Aug 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Lomma CC vs Helsingborg Gymkhana Titans",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 1",
+      },
+      {
+        date: "8 Aug 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Lomma CC vs Landskrona CC (1st XI)",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 1",
+      },
+      {
+        date: "15 Aug 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Lomma CC vs Malmö CC 2nd XI",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 1",
+      },
+      {
+        date: "22 Aug 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Evergreen B vs Lomma CC",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 1",
+      },
+      {
+        date: "29 Aug 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Lomma CC vs HCA Kings XI",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 1",
+      },
+      {
+        date: "12 Sep 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Lomma CC vs Helsingborg Stars",
+        league: "2026 T20 - Superettan",
+        venue: "Limhamnsfältet 1",
+      },
+    ],
   },
+
   {
-    name: "Lomma Lions CC",
-    players: ["Player A", "Player B", "Player C"],
-    previous: ["Won vs Panthers"],
-    upcoming: ["vs Lomma CC - 25 Mar"],
+    name: "Lomma Gold Monks",
+    players: [
+      { name: "Aamir Iqbal", link: "#" },
+      { name: "Mohsin Aziz", link: "#" },
+      { name: "Sharim Afzal", link: "#" },
+      { name: "Adnan Khan", link: "#" },
+      { name: "Ahmed Mehmood", link: "#" },
+      { name: "Ans Ahmad", link: "#" },
+      { name: "Arshad Khan", link: "#" },
+      { name: "Azim Khan", link: "#" },
+      { name: "Bilal Ahmad", link: "#" },
+      { name: "Daud Khan", link: "#" },
+      { name: "Fazal Rahman", link: "#" },
+      { name: "Haroon Sediai", link: "#" },
+      { name: "Hassan Khan", link: "#" },
+      { name: "Irfan Mehmood", link: "#" },
+      { name: "Malyar Muhayuddin", link: "#" },
+      { name: "Mohsin Ahmed", link: "#" },
+      { name: "Nadir Bajwa", link: "#" },
+      { name: "Najam Ul-Haque", link: "#" },
+      { name: "Prashant Kumar", link: "#" },
+      { name: "Rehan Bajwa", link: "#" },
+      { name: "Rizwan Afzal", link: "#" },
+      { name: "Sajid Ahmed", link: "#" },
+      { name: "Saleem Din", link: "#" },
+      { name: "Shabeer Shafiq", link: "#" },
+      { name: "Shazil Afzal", link: "#" },
+      { name: "Siraj Ud Din Badri", link: "#" },
+      { name: "Syedhameed Akber", link: "#" },
+      { name: "Talmeez Sheikh", link: "#" },
+      { name: "Thangaraj Moorthi", link: "#" },
+      { name: "Toheed Ayyan", link: "#" },
+      { name: "Ziaulhaq Zadran", link: "#" },
+      { name: "Zohaib Ayyan", link: "#" },
+      { name: "Zulkifl Rashid", link: "#" },
+    ],
+    previous: [{
+      date: "4 Oct 2025",
+      match: "Landskrona CC vs Lomma CC",
+      result: "Abandoned",
+      score: "0/0 vs 0/0",
+    },
+    {
+      date: "19 Jul 2025",
+      match: "Kristianstad CC vs Lomma CC",
+      result: "Lomma CC won by 10 Wickets",
+      score: "130/8 vs 132/0",
+    },],
+    upcoming: [
+      {
+        date: "25 Apr 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Lomma Gold Monks vs Helsingborg Gymkhana Titans",
+        league: "2026 T30 Div 1",
+        venue: "Lomma Cricket Ground",
+      },
+      {
+        date: "2 May 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Lomma Gold Monks vs Malmö Warriors",
+        league: "2026 T30 Div 1",
+        venue: "Lomma Cricket Ground",
+      },
+      {
+        date: "17 May 2026",
+        day: "Sunday",
+        time: "9:00 AM",
+        match: "Lugi Chargers vs Lomma Gold Monks",
+        league: "2026 T30 Div 1",
+        venue: "Limhamnsfältet 2",
+      },
+      {
+        date: "23 May 2026",
+        day: "Saturday",
+        time: "9:00 AM",
+        match: "Lomma Gold Monks vs Kalmar CF",
+        league: "2026 T30 Div 1",
+        venue: "Lomma Cricket Ground",
+      },
+      {
+        date: "30 May 2026",
+        day: "Saturday",
+        time: "9:00 AM",
+        match: "Malmöhus 2nd XI vs Lomma Gold Monks",
+        league: "2026 T30 Div 1",
+        venue: "Lindängen Malmö",
+      },
+      {
+        date: "6 Jun 2026",
+        day: "Saturday",
+        time: "1:30 PM",
+        match: "Lomma Gold Monks vs Malmö CC 2nd XI",
+        league: "2026 T30 Div 1",
+        venue: "Lomma Cricket Ground",
+      },
+      {
+        date: "14 Jun 2026",
+        day: "Sunday",
+        time: "10:00 AM",
+        match: "UNITED Shaheens vs Lomma Gold Monks",
+        league: "2026 T30 Div 1",
+        venue: "Limhamnsfältet 1",
+      },
+    ],
   },
+
   {
     name: "Lomma Kings XI",
-    players: ["Player X", "Player Y", "Player Z"],
-    previous: ["Lost vs Lomma CC"],
-    upcoming: ["vs Panthers - 28 Mar"],
+    players: [
+      { name: "Mohsin Aziz", link: "#" },
+      { name: "Kumar Gauravsingh", link: "#" },
+      { name: "Ram Nanduri", link: "#" },
+      { name: "Nidhin Sudhakaran", link: "#" },
+      { name: "Abdul Khan", link: "#" },
+      { name: "Chaitanya Palley", link: "#" },
+      { name: "Gibin Thomas", link: "#" },
+      { name: "Mohan Kona", link: "#" },
+      { name: "Nadir Bajwa", link: "#" },
+      { name: "Najam Ul-Haque", link: "#" },
+      { name: "Nasir Iqbal", link: "#" },
+      { name: "Prashant Kumar", link: "#" },
+      { name: "Rajat Varshney", link: "#" },
+      { name: "Rajeev Swain", link: "#" },
+      { name: "Rajwan Chowdhury", link: "#" },
+      { name: "Ratikant Rath", link: "#" },
+      { name: "Rohan Raghunath", link: "#" },
+      { name: "Sajid Ahmed", link: "#" },
+      { name: "Satya Sahoo", link: "#" },
+      { name: "Shabeer Shafiq", link: "#" },
+      { name: "Shekhar Jadhav", link: "#" },
+      { name: "Siddharth Ubale", link: "#" },
+      { name: "Sriram Iyer", link: "#" },
+      { name: "Sushil Rajasekaran", link: "#" },
+      { name: "Thangaraj Moorthi", link: "#" },
+      { name: "Usman Khalid", link: "#" },
+      { name: "Vijayavignesh Vijayakumar", link: "#" },
+    ],
+    previous: ["Coming Soon"],
+    upcoming: [
+      {
+        date: "25 Apr 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Lomma Gold Monks vs Helsingborg Gymkhana Titans",
+        league: "2026 T30 Div 1",
+        venue: "Lomma Cricket Ground",
+      },
+      {
+        date: "2 May 2026",
+        day: "Saturday",
+        time: "10:00 AM",
+        match: "Lomma Gold Monks vs Malmö Warriors",
+        league: "2026 T30 Div 1",
+        venue: "Lomma Cricket Ground",
+      },
+      {
+        date: "17 May 2026",
+        day: "Sunday",
+        time: "9:00 AM",
+        match: "Lugi Chargers vs Lomma Gold Monks",
+        league: "2026 T30 Div 1",
+        venue: "Limhamnsfältet 2",
+      },
+      {
+        date: "23 May 2026",
+        day: "Saturday",
+        time: "9:00 AM",
+        match: "Lomma Gold Monks vs Kalmar CF",
+        league: "2026 T30 Div 1",
+        venue: "Lomma Cricket Ground",
+      },
+      {
+        date: "30 May 2026",
+        day: "Saturday",
+        time: "9:00 AM",
+        match: "Malmöhus 2nd XI vs Lomma Gold Monks",
+        league: "2026 T30 Div 1",
+        venue: "Lindängen Malmö",
+      },
+      {
+        date: "6 Jun 2026",
+        day: "Saturday",
+        time: "1:30 PM",
+        match: "Lomma Gold Monks vs Malmö CC 2nd XI",
+        league: "2026 T30 Div 1",
+        venue: "Lomma Cricket Ground",
+      },
+      {
+        date: "14 Jun 2026",
+        day: "Sunday",
+        time: "10:00 AM",
+        match: "UNITED Shaheens vs Lomma Gold Monks",
+        league: "2026 T30 Div 1",
+        venue: "Limhamnsfältet 1",
+      },
+    ],
   },
+
   {
     name: "Lomma Panthers",
-    players: ["Player M", "Player N", "Player O"],
-    previous: ["Won vs Lions"],
-    upcoming: ["vs Kings XI - 28 Mar"],
+    players: [{ name: "Player X", link: "#" }],
+    previous: ["Coming Soon"],
+    upcoming: [{ date: "-", time: "-", match: "Coming Soon", venue: "-" }],
   },
 ];
 
 export default function Teams() {
   const [activeTeam, setActiveTeam] = useState(0);
-  const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 md:px-16 py-20">
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white px-6 md:px-16 py-20">
 
       {/* 🔥 TITLE */}
-      <h1 className="text-4xl md:text-6xl font-bold text-center mb-12">
+      <h1 className="text-4xl md:text-6xl font-extrabold text-center mb-12 bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent">
         Our Teams
       </h1>
 
       {/* 🔥 TEAM SELECTOR */}
-      <div className="flex flex-wrap justify-center gap-4 mb-12">
+      <div className="flex flex-wrap justify-center gap-4 mb-14">
         {teamsData.map((team, i) => (
           <button
             key={i}
             onClick={() => setActiveTeam(i)}
-            className={`px-6 py-2 rounded-full transition ${
-              activeTeam === i
-                ? "bg-orange-500 text-black"
-                : "bg-white/10 hover:bg-orange-400 hover:text-black"
-            }`}
+            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300
+              ${activeTeam === i
+                ? "bg-orange-500 text-black shadow-lg scale-105"
+                : "bg-white/10 hover:bg-orange-400 hover:text-black hover:scale-105"
+              }`}
           >
             {team.name}
           </button>
         ))}
       </div>
 
-      {/* 🔥 TEAM CONTENT */}
+      {/* 🔥 TEAM NAME */}
+      <h2 className="text-2xl md:text-3xl font-semibold mb-10 text-center text-orange-400 tracking-wide">
+        {teamsData[activeTeam].name}
+      </h2>
+
+      {/* 🔥 CONTENT */}
       <motion.div
         key={activeTeam}
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        className="grid md:grid-cols-3 gap-10"
+        transition={{ duration: 0.5 }}
+        className="grid md:grid-cols-3 gap-8"
       >
 
         {/* 🧑 PLAYERS */}
-        <div className="bg-white/10 rounded-2xl p-6">
-          <h2 className="text-xl font-bold mb-4">Players</h2>
+        <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-5 max-h-[520px] overflow-y-auto shadow-xl">
 
-          <div className="flex flex-col gap-3">
+          <h3 className="text-lg font-semibold mb-4 sticky top-0 bg-black/60 backdrop-blur-md py-2">
+            Players
+          </h3>
+
+          <div className="flex flex-col gap-2 text-sm">
             {teamsData[activeTeam].players.map((player, i) => (
-              <div
+              <a
                 key={i}
-                onClick={() => navigate(`/player/${player}`)}
-                className="cursor-pointer p-2 rounded hover:bg-orange-500 hover:text-black transition"
+                href={player.link}
+                target="_blank"
+                className="px-3 py-2 rounded-lg hover:bg-orange-500 hover:text-black transition"
               >
-                {player}
-              </div>
+                {player.name}
+              </a>
             ))}
           </div>
         </div>
 
         {/* 🏏 PREVIOUS MATCHES */}
-        <div className="bg-white/10 rounded-2xl p-6">
-          <h2 className="text-xl font-bold mb-4">Previous Matches</h2>
+        <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-5 shadow-xl">
 
-          <div className="flex flex-col gap-3 text-gray-300">
-            {teamsData[activeTeam].previous.map((match, i) => (
-              <div key={i}>{match}</div>
+          <h3 className="text-lg font-semibold mb-4">
+            Previous Matches
+          </h3>
+
+          <div className="flex flex-col gap-4">
+            {teamsData[activeTeam].previous.map((m, i) => (
+              <div
+                key={i}
+                className="p-4 rounded-xl bg-black/50 border border-white/10 hover:border-orange-400 transition"
+              >
+                <p className="text-xs text-orange-400 font-medium mb-1">
+                  {m.date}
+                </p>
+
+                <p className="font-medium">{m.match}</p>
+
+                <p className="text-gray-400 text-sm">{m.score}</p>
+
+                <p className={`text-sm mt-1 font-medium ${m.result.includes("won")
+                  ? "text-green-400"
+                  : "text-red-400"
+                  }`}>
+                  {m.result}
+                </p>
+              </div>
             ))}
           </div>
         </div>
 
         {/* 📅 UPCOMING MATCHES */}
-        <div className="bg-white/10 rounded-2xl p-6">
-          <h2 className="text-xl font-bold mb-4">Upcoming Matches</h2>
+        <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-5 shadow-xl">
 
-          <div className="flex flex-col gap-3 text-gray-300">
-            {teamsData[activeTeam].upcoming.map((match, i) => (
-              <div key={i}>{match}</div>
+          <h3 className="text-lg font-semibold mb-4">
+            Upcoming Matches
+          </h3>
+
+          <div className="flex flex-col gap-4">
+            {teamsData[activeTeam].upcoming.map((m, i) => (
+              <div
+                key={i}
+                className="p-4 rounded-xl bg-black/50 border border-white/10 hover:border-orange-400 transition group"
+              >
+                <p className="text-xs text-orange-400 font-medium mb-1">
+                  {m.day} • {m.date}
+                </p>
+
+                <p className="font-semibold text-white group-hover:text-orange-300 transition">
+                  {m.match}
+                </p>
+
+                <p className="text-gray-400 text-sm mt-1">
+                  🏟 {m.venue}
+                </p>
+
+                <p className="text-gray-500 text-xs mt-1">
+                  {m.league} • {m.time}
+                </p>
+              </div>
             ))}
           </div>
         </div>
 
       </motion.div>
-
     </div>
   );
 }
