@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Teams from "./pages/Teams";
-import Matches from "./pages/Matches";
+
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 
@@ -20,7 +20,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/teams" element={<Teams />} />
-          <Route path="/matches" element={<Matches />} />
+         
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/about" element={<About />} />
         </Routes>
