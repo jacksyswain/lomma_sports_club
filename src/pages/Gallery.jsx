@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const sections = [
   {
@@ -20,6 +21,7 @@ const sections = [
 ];
 
 export default function Gallery() {
+  const [slideIndex, setSlideIndex] = useState(0);
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white px-6 md:px-16 py-20 relative overflow-hidden">
 
@@ -45,51 +47,135 @@ export default function Gallery() {
       {/* 🔥 SECTIONS */}
       <div className="flex flex-col gap-20 relative z-10">
 
-        {sections.map((section, sIndex) => (
-          <motion.div
-            key={sIndex}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            {/* SECTION TITLE */}
-            <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-orange-400">
-              {section.title}
-            </h2>
+        {sections.map((section, sIndex) => {
+          const imagesPerSlide = 3;
 
-            {/* GRID */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          const slides = [];
+          for (let i = 0; i < section.images.length; i += imagesPerSlide) {
+            slides.push(section.images.slice(i, i + imagesPerSlide));
+          }
 
-              {section.images.map((img, index) => (
+          const current = slideIndex % slides.length;
+
+          return (
+            <motion.div
+              key={sIndex}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* TITLE */}
+              <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-orange-400">
+                {section.title}
+              </h2>
+
+              {/* 🔥 SLIDER */}
+              <div className="relative">
+
+                {/* 🔥 SLIDES */}
                 <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.05 }}
-                  className="relative overflow-hidden rounded-2xl cursor-pointer group bg-white/5 backdrop-blur-lg border border-white/10"
+                  key={current}
+                  initial={{ opacity: 0, x: 60 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -60 }}
+                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
                 >
-                  {/* IMAGE */}
-                  <img
-                    src={img}
-                    alt="gallery"
-                    className="w-full h-64 object-cover transition duration-500 group-hover:scale-110"
-                  />
+                  {slides[current].map((img, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ scale: 1.05 }}
+                      className="relative overflow-hidden rounded-2xl cursor-pointer group bg-white/5 backdrop-blur-lg border border-white/10"
+                    >
+                      <img
+                        src={img}
+                        className="w-full h-64 object-cover transition duration-500 group-hover:scale-110"
+                      />
 
-                  {/* 🔥 OVERLAY */}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                    <p className="text-white font-semibold tracking-wide">
-                      View Moment
-                    </p>
-                  </div>
+                      {/* OVERLAY */}
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                        <p className="text-white font-semibold">View Moment</p>
+                      </div>
 
-                  {/* 🔥 GLOW BORDER ON HOVER */}
-                  <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-orange-400 transition" />
+                      <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-orange-400 transition" />
+                    </motion.div>
+                  ))}
                 </motion.div>
-              ))}
 
-            </div>
-          </motion.div>
-        ))}
+                {/* 🔥 CONTROLS */}
+                <div className="flex justify-center gap-6 mt-8">
 
+                  <button
+                    onClick={() =>
+                      setSlideIndex((prev) =>
+                        prev === 0 ? slides.length - 1 : prev - 1
+                      )
+                    }
+                    className="px-6 py-2 rounded-full bg-white/10 hover:bg-orange-500 hover:text-black transition"
+                  >
+                    ← Prev
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      setSlideIndex((prev) =>
+                        prev === slides.length - 1 ? 0 : prev + 1
+                      )
+                    }
+                    className="px-6 py-2 rounded-full bg-white/10 hover:bg-orange-500 hover:text-black transition"
+                  >
+                    Next →
+                  </button>
+
+                </div>
+
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="mt-10"
+      >
+        {/* TITLE */}
+        <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-orange-400">
+          Practice Matches
+        </h2>
+
+        {/* VIDEO GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          {[
+            "https://www.youtube.com/embed/o7FCTneI1cc",
+            "https://www.youtube.com/embed/CuukjWkqT4Q",
+            "https://www.youtube.com/embed/DwM7-N-dDZg",
+            "https://www.youtube.com/embed/BRq1wByjfC4",
+          ].map((video, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.02 }}
+              className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl"
+            >
+              <iframe
+                src={video}
+                title={`video-${i}`}
+                className="w-full h-64 md:h-80"
+                allowFullScreen
+              />
+
+              {/* OPTIONAL CAPTION */}
+              <div className="p-4 text-left">
+                <p className="text-sm text-gray-300">
+                  Practice Match Highlights #{i + 1}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+
+        </div>
+      </motion.div>
 
     </div>
   );
