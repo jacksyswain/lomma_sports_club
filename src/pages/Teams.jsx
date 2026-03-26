@@ -664,8 +664,8 @@ export default function Teams() {
             "https://www.youtube.com/embed/k7zZz95-Ds0",
             "https://www.youtube.com/embed/DG5kwDHaLBk",
             "https://www.youtube.com/embed/bxvkvnvmEj4",
-            "https://www.youtube.com/embed/NiD9CYC5YWA&t=606s",
-            "https://www.youtube.com/embed/dQw4w9WgXcQ",
+            "https://www.youtube.com/embed/wkbRKwFYDOk",
+            "https://www.youtube.com/embed/Ti9ko08SEaI",
           ].map((video, i) => (
             <motion.div
               key={i}
