@@ -61,6 +61,7 @@ export default function Home() {
   });
   const navigate = useNavigate();
   const jerseys = [jursey1, jursey2, jursey3];
+  const [managerIndex, setManagerIndex] = useState(0);
 
   const [index, setIndex] = useState(0);
 
@@ -384,26 +385,24 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
-        className="py-20 bg-white px-6 md:px-16 text-center"
+        className="py-20 px-6 md:px-16 text-center bg-gradient-to-b from-white via-gray-900 to-black text-white relative"
       >
         <h2 className="text-4xl font-bold mb-12">
           Club Management
         </h2>
 
-        <div className="grid md:grid-cols-4 gap-8">
-
-          {[
+        {/* DATA */}
+        {(() => {
+          const managers = [
             {
               name: "Najam Ul haq",
-
               img: manager1,
               fb: "#",
               insta: "#",
               mail: "mailto:test@gmail.com",
             },
             {
-              name: " Sajid Ahmed",
-
+              name: "Sajid Ahmed",
               img: manager2,
               fb: "#",
               insta: "#",
@@ -411,15 +410,13 @@ export default function Home() {
             },
             {
               name: "rajeev Ranjan Swain",
-
               img: manager3,
               fb: "https://www.facebook.com/rajeev.swain.5",
               insta: "https://www.instagram.com/rajeevswain17/?hl=en",
-              mail: "rrswn1986@gmail.com",
+              mail: "mailto:rrswn1986@gmail.com",
             },
             {
               name: "gaurav kumar Singh",
-
               img: manager4,
               fb: "#",
               insta: "#",
@@ -427,7 +424,6 @@ export default function Home() {
             },
             {
               name: "Nidhin Sudhakaran",
-
               img: manager5,
               fb: "#",
               insta: "#",
@@ -435,48 +431,96 @@ export default function Home() {
             },
             {
               name: "Shekhar Jadhav",
-
               img: manager6,
               fb: "#",
               insta: "#",
               mail: "mailto:test@gmail.com",
             },
-          ].map((person, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -10 }}
-              className="bg-gray-100 rounded-2xl shadow-lg overflow-hidden p-4"
-            >
-              {/* Image */}
-              <img
-                src={person.img}
-                className="w-full h-56 object-contain bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-3"
-              />
+          ];
 
-              {/* Info */}
-              <h3 className="mt-4 font-bold text-lg">{person.name}</h3>
+          const cardsPerSlide = 4;
+          const slides = [];
 
+          for (let i = 0; i < managers.length; i += cardsPerSlide) {
+            slides.push(managers.slice(i, i + cardsPerSlide));
+          }
 
-              {/* Social Links */}
-              <div className="flex justify-center gap-4 mt-4">
+          const current = managerIndex % slides.length;
 
-                <a href={person.fb} target="_blank">
-                  <Facebook size={18} className="hover:text-orange-500 transition" />
-                </a>
+          return (
+            <>
+              {/* 🔥 SLIDER */}
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, x: 80 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="grid md:grid-cols-4 gap-8"
+              >
+                {slides[current].map((person, i) => (
+                  <motion.div
+                    key={i}
+                    whileHover={{ y: -10, scale: 1.03 }}
+                    className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-4 shadow-xl"
+                  >
+                    {/* IMAGE */}
+                    <img
+                      src={person.img}
+                      className="w-full h-56 object-contain bg-black/40 rounded-xl p-3"
+                    />
 
-                <a href={person.insta} target="_blank">
-                  <Instagram size={18} className="hover:text-orange-500 transition" />
-                </a>
+                    {/* NAME */}
+                    <h3 className="mt-4 font-bold text-lg">{person.name}</h3>
 
-                <a href={person.mail}>
-                  <Mail size={18} className="hover:text-orange-500 transition" />
-                </a>
+                    {/* SOCIAL */}
+                    <div className="flex justify-center gap-4 mt-4">
+
+                      <a href={person.fb} target="_blank">
+                        <Facebook size={18} className="hover:text-orange-500 transition" />
+                      </a>
+
+                      <a href={person.insta} target="_blank">
+                        <Instagram size={18} className="hover:text-orange-500 transition" />
+                      </a>
+
+                      <a href={person.mail}>
+                        <Mail size={18} className="hover:text-orange-500 transition" />
+                      </a>
+
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* 🔥 CONTROLS */}
+              <div className="flex justify-center gap-6 mt-10">
+
+                <button
+                  onClick={() =>
+                    setManagerIndex((prev) =>
+                      prev === 0 ? slides.length - 1 : prev - 1
+                    )
+                  }
+                  className="px-6 py-2 rounded-full bg-white/10 hover:bg-orange-500 hover:text-black transition"
+                >
+                  ←
+                </button>
+
+                <button
+                  onClick={() =>
+                    setManagerIndex((prev) =>
+                      prev === slides.length - 1 ? 0 : prev + 1
+                    )
+                  }
+                  className="px-6 py-2 rounded-full bg-white/10 hover:bg-orange-500 hover:text-black transition"
+                >
+                  →
+                </button>
 
               </div>
-            </motion.div>
-          ))}
-
-        </div>
+            </>
+          );
+        })()}
       </motion.section>
 
       {/* 🧑‍🏫 COACH */}
@@ -586,7 +630,7 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="py-24 px-6 md:px-16 text-center bg-gradient-to-b from-black via-gray-900 to-black text-white"
+        className="py-24 px-6 md:px-16 text-center bg-white via-gray-900 to-white text-black"
       >
         {/* 🔥 TITLE */}
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
