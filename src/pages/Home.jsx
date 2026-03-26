@@ -8,11 +8,14 @@ import jursey3 from "@/asserts/jersey3.png"
 import partner1 from "@/asserts/partner1.png"
 import partner2 from "@/asserts/partner2.png"
 import partner3 from "@/asserts/partner3.png"
+import partner4 from "@/asserts/partner4.png"
 import training from "@/asserts/training.png"
 import manager1 from "@/asserts/manager1.png"
 import manager4 from "@/asserts/manager4.jpeg"
 import manager3 from "@/asserts/manager3.jpeg"
 import manager2 from "@/asserts/manager2.png"
+import manager5 from "@/asserts/manager5.jpeg"
+import manager6 from "@/asserts/manager6.jpeg"
 import hero1 from "@/asserts/hero1.png"
 import hero2 from "@/asserts/hero2.png"
 import hero3 from "@/asserts/hero3.png"
@@ -148,13 +151,13 @@ export default function Home() {
         <div className="relative z-10 flex flex-col justify-center items-center text-center h-full px-6 text-white">
 
           <motion.h1
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-5xl md:text-7xl font-extrabold leading-tight bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent"
-        >
-          Welcome to <br /> LOMMA Sports Club
-        </motion.h1>
+            initial={{ opacity: 0, y: 60 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-5xl md:text-7xl font-extrabold leading-tight bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent"
+          >
+            Welcome to <br /> LOMMA Sports Club
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0 }}
@@ -162,8 +165,8 @@ export default function Home() {
             transition={{ delay: 0.5 }}
             className="mt-6 text-lg text-gray-300 max-w-2xl"
           >
-           More than a cricket club — a community built on passion, discipline, 
-          and the relentless pursuit of excellence since 2020.
+            More than a cricket club — a community built on passion, discipline,
+            and the relentless pursuit of excellence since 2020.
           </motion.p>
 
           <motion.div
@@ -172,19 +175,19 @@ export default function Home() {
             transition={{ delay: 1 }}
             className="mt-8 flex gap-4"
           >
-              <button
-            onClick={() => navigate("/teams")}
-            className="px-8 py-3 rounded-full bg-orange-500 text-black font-semibold hover:bg-orange-400 transition transform hover:scale-105"
-          >
-            Explore Teams
-          </button>
+            <button
+              onClick={() => navigate("/teams")}
+              className="px-8 py-3 rounded-full bg-orange-500 text-black font-semibold hover:bg-orange-400 transition transform hover:scale-105"
+            >
+              Explore Teams
+            </button>
 
-          <button
-            onClick={() => navigate("/about")}
-            className="px-8 py-3 rounded-full border border-white hover:bg-white hover:text-black transition transform hover:scale-105"
-          >
-            Join Club
-          </button>
+            <button
+              onClick={() => navigate("/about")}
+              className="px-8 py-3 rounded-full border border-white hover:bg-white hover:text-black transition transform hover:scale-105"
+            >
+              Join Club
+            </button>
           </motion.div>
 
         </div>
@@ -392,7 +395,7 @@ export default function Home() {
           {[
             {
               name: "Najam Ul haq",
-              
+
               img: manager1,
               fb: "#",
               insta: "#",
@@ -400,7 +403,7 @@ export default function Home() {
             },
             {
               name: " Sajid Ahmed",
-              
+
               img: manager2,
               fb: "#",
               insta: "#",
@@ -408,7 +411,7 @@ export default function Home() {
             },
             {
               name: "rajeev Ranjan Swain",
-              
+
               img: manager3,
               fb: "https://www.facebook.com/rajeev.swain.5",
               insta: "https://www.instagram.com/rajeevswain17/?hl=en",
@@ -416,8 +419,24 @@ export default function Home() {
             },
             {
               name: "gaurav kumar Singh",
-              
+
               img: manager4,
+              fb: "#",
+              insta: "#",
+              mail: "mailto:test@gmail.com",
+            },
+            {
+              name: "Nidhin Sudhakaran",
+
+              img: manager5,
+              fb: "#",
+              insta: "#",
+              mail: "mailto:test@gmail.com",
+            },
+            {
+              name: "Shekhar Jadhav",
+
+              img: manager6,
               fb: "#",
               insta: "#",
               mail: "mailto:test@gmail.com",
@@ -436,7 +455,7 @@ export default function Home() {
 
               {/* Info */}
               <h3 className="mt-4 font-bold text-lg">{person.name}</h3>
-              
+
 
               {/* Social Links */}
               <div className="flex justify-center gap-4 mt-4">
@@ -567,14 +586,14 @@ export default function Home() {
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="py-24 px-6 md:px-16 text-center bg-gradient-to-b from-white to-gray-100"
+        className="py-24 px-6 md:px-16 text-center bg-gradient-to-b from-black via-gray-900 to-black text-white"
       >
         {/* 🔥 TITLE */}
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           Our Partners
         </h2>
 
-        <p className="text-gray-600 max-w-xl mx-auto mb-12">
+        <p className="text-gray-400 max-w-xl mx-auto mb-12">
           We proudly collaborate with organizations that support our vision,
           helping us grow and achieve excellence on and off the field.
         </p>
@@ -582,15 +601,15 @@ export default function Home() {
         {/* 🔥 PARTNER CARDS */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
 
-          {[partner1, partner2, partner3, partner1].map((img, i) => (
+          {[partner1, partner2, partner3, partner4].map((img, i) => (
             <motion.div
               key={i}
               whileHover={{ y: -8, scale: 1.05 }}
-              className="bg-white/70 backdrop-blur-lg border border-gray-200 rounded-2xl p-6 shadow-md hover:shadow-xl transition flex items-center justify-center"
+              className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex items-center justify-center"
             >
               <img
                 src={img}
-                className="h-12 object-contain grayscale hover:grayscale-0 transition duration-300"
+                className="h-12 object-contain transition duration-300"
               />
             </motion.div>
           ))}
