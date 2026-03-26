@@ -537,134 +537,157 @@ export default function Teams() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white px-6 md:px-16 py-20 relative overflow-hidden">
 
-  {/* 🔥 BACKGROUND GLOW (same as Home feel) */}
-  <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/20 blur-3xl rounded-full" />
-  <div className="absolute bottom-20 right-10 w-72 h-72 bg-yellow-400/10 blur-3xl rounded-full" />
+      {/* 🔥 BACKGROUND GLOW (same as Home feel) */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/20 blur-3xl rounded-full" />
+      <div className="absolute bottom-20 right-10 w-72 h-72 bg-yellow-400/10 blur-3xl rounded-full" />
 
-  {/* 🔥 TITLE */}
-  <h1 className="text-4xl md:text-6xl font-extrabold text-center mb-12 bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent tracking-wide">
-    Our Teams
-  </h1>
+      {/* 🔥 TITLE */}
+      <h1 className="text-4xl md:text-6xl font-extrabold text-center mb-12 bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent tracking-wide">
+        Our Teams
+      </h1>
 
-  {/* 🔥 TEAM SELECTOR */}
-  <div className="flex flex-wrap justify-center gap-4 mb-14">
-    {teamsData.map((team, i) => (
-      <button
-        key={i}
-        onClick={() => setActiveTeam(i)}
-        className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-md border
+      {/* 🔥 TEAM SELECTOR */}
+      <div className="flex flex-wrap justify-center gap-4 mb-14">
+        {teamsData.map((team, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveTeam(i)}
+            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-md border
           ${activeTeam === i
-            ? "bg-orange-500 text-black shadow-lg scale-105 border-orange-400"
-            : "bg-white/5 border-white/10 hover:bg-orange-400 hover:text-black hover:scale-105"
-          }`}
+                ? "bg-orange-500 text-black shadow-lg scale-105 border-orange-400"
+                : "bg-white/5 border-white/10 hover:bg-orange-400 hover:text-black hover:scale-105"
+              }`}
+          >
+            {team.name}
+          </button>
+        ))}
+      </div>
+
+      {/* 🔥 TEAM NAME */}
+      <h2 className="text-2xl md:text-3xl font-semibold mb-10 text-center text-orange-400 tracking-wide">
+        {teamsData[activeTeam].name}
+      </h2>
+
+      {/* 🔥 CONTENT */}
+      <motion.div
+        key={activeTeam}
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="grid md:grid-cols-3 gap-8"
       >
-        {team.name}
-      </button>
-    ))}
-  </div>
 
-  {/* 🔥 TEAM NAME */}
-  <h2 className="text-2xl md:text-3xl font-semibold mb-10 text-center text-orange-400 tracking-wide">
-    {teamsData[activeTeam].name}
-  </h2>
+        {/* 🧑 PLAYERS */}
+        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 h-[520px] flex flex-col shadow-2xl">
 
-  {/* 🔥 CONTENT */}
-  <motion.div
-    key={activeTeam}
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    className="grid md:grid-cols-3 gap-8"
-  >
+          <h3 className="text-lg font-semibold mb-4 sticky top-0 bg-black/60 backdrop-blur-md py-2 border-b border-white/10 z-10">
+            Players
+          </h3>
 
-    {/* 🧑 PLAYERS */}
-    <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 max-h-[520px] overflow-y-auto shadow-2xl">
-
-      <h3 className="text-lg font-semibold mb-4 sticky top-0 bg-black/60 backdrop-blur-md py-2 border-b border-white/10">
-        Players
-      </h3>
-
-      <div className="flex flex-col gap-2 text-sm">
-        {teamsData[activeTeam].players.map((player, i) => (
-          <a
-            key={i}
-            href={player.link}
-            target="_blank"
-            className="px-3 py-2 rounded-lg transition-all duration-200 hover:bg-orange-500 hover:text-black hover:translate-x-1"
-          >
-            {player.name}
-          </a>
-        ))}
-      </div>
-    </div>
-
-    {/* 🏏 PREVIOUS MATCHES */}
-    <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 shadow-2xl">
-
-      <h3 className="text-lg font-semibold mb-4">
-        Previous Matches
-      </h3>
-
-      <div className="flex flex-col gap-4">
-        {teamsData[activeTeam].previous.map((m, i) => (
-          <div
-            key={i}
-            className="p-4 rounded-xl bg-black/40 border border-white/10 hover:border-orange-400 transition-all duration-300 hover:scale-[1.02]"
-          >
-            <p className="text-xs text-orange-400 font-medium mb-1">
-              {m.date}
-            </p>
-
-            <p className="font-medium text-white">{m.match}</p>
-
-            <p className="text-gray-400 text-sm">{m.score}</p>
-
-            <p className={`text-sm mt-1 font-medium ${
-              m.result.includes("won")
-                ? "text-green-400"
-                : "text-red-400"
-            }`}>
-              {m.result}
-            </p>
+          <div className="flex-1 overflow-y-auto pr-2 space-y-2 text-sm scrollbar-thin">
+            {teamsData[activeTeam].players.map((player, i) => (
+              <a
+                key={i}
+                href={player.link}
+                target="_blank"
+                className="block px-3 py-2 rounded-lg transition hover:bg-orange-500 hover:text-black hover:translate-x-1"
+              >
+                {player.name}
+              </a>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
 
-    {/* 📅 UPCOMING MATCHES */}
-    <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 shadow-2xl">
+        {/* 🏏 PREVIOUS MATCHES */}
+        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 h-[520px] flex flex-col shadow-2xl">
 
-      <h3 className="text-lg font-semibold mb-4">
-        Upcoming Matches
-      </h3>
+          <h3 className="text-lg font-semibold mb-4 sticky top-0 bg-black/60 backdrop-blur-md py-2 border-b border-white/10 z-10">
+            Previous Matches
+          </h3>
 
-      <div className="flex flex-col gap-4">
-        {teamsData[activeTeam].upcoming.map((m, i) => (
-          <div
-            key={i}
-            className="p-4 rounded-xl bg-black/40 border border-white/10 hover:border-orange-400 transition-all duration-300 hover:scale-[1.02] group"
-          >
-            <p className="text-xs text-orange-400 font-medium mb-1">
-              {m.day} • {m.date}
-            </p>
-
-            <p className="font-semibold text-white group-hover:text-orange-300 transition">
-              {m.match}
-            </p>
-
-            <p className="text-gray-400 text-sm mt-1">
-              🏟 {m.venue}
-            </p>
-
-            <p className="text-gray-500 text-xs mt-1">
-              {m.league} • {m.time}
-            </p>
+          <div className="flex-1 overflow-y-auto pr-2 space-y-4">
+            {teamsData[activeTeam].previous.map((m, i) => (
+              <div
+                key={i}
+                className="p-4 rounded-xl bg-black/40 border border-white/10 hover:border-orange-400 transition hover:scale-[1.02]"
+              >
+                <p className="text-xs text-orange-400 mb-1">{m.date}</p>
+                <p className="font-medium">{m.match}</p>
+                <p className="text-gray-400 text-sm">{m.score}</p>
+                <p className={`text-sm mt-1 ${m.result.includes("won") ? "text-green-400" : "text-red-400"
+                  }`}>
+                  {m.result}
+                </p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
 
-  </motion.div>
-</div>
+        {/* 📅 UPCOMING MATCHES */}
+        <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 h-[520px] flex flex-col shadow-2xl">
+
+          <h3 className="text-lg font-semibold mb-4 sticky top-0 bg-black/60 backdrop-blur-md py-2 border-b border-white/10 z-10">
+            Upcoming Matches
+          </h3>
+
+          <div className="flex-1 overflow-y-auto pr-2 space-y-4">
+            {teamsData[activeTeam].upcoming.map((m, i) => (
+              <div
+                key={i}
+                className="p-4 rounded-xl bg-black/40 border border-white/10 hover:border-orange-400 transition hover:scale-[1.02]"
+              >
+                <p className="text-xs text-orange-400 mb-1">
+                  {m.day} • {m.date}
+                </p>
+                <p className="font-semibold">{m.match}</p>
+                <p className="text-gray-400 text-sm">🏟 {m.venue}</p>
+                <p className="text-gray-500 text-xs">
+                  {m.league} • {m.time}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </motion.div>
+
+      <section className="mt-20">
+
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent">
+          Match Highlights
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {[
+            "https://www.youtube.com/embed/Ti9ko08SEaI",
+            "https://www.youtube.com/embed/k7zZz95-Ds0",
+            "https://www.youtube.com/embed/DG5kwDHaLBk",
+            "https://www.youtube.com/embed/bxvkvnvmEj4",
+            "https://www.youtube.com/embed/NiD9CYC5YWA&t=606s",
+            "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          ].map((video, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.03 }}
+              className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden shadow-xl"
+            >
+              <iframe
+                src={video}
+                className="w-full h-56 md:h-64"
+                allowFullScreen
+              />
+
+              <div className="p-4">
+                <p className="text-sm text-gray-300">
+                  Highlight Match #{i + 1}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+
+        </div>
+      </section>
+    </div>
   );
 }
