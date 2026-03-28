@@ -9,6 +9,10 @@ import a8 from "@/asserts/a8.jpeg"
 import a6 from "@/asserts/a6.jpeg"
 import a7 from "@/asserts/a7.jpeg"
 import a9 from "@/asserts/a9.jpeg"
+import thumb1 from "@/asserts/thumb1.png"
+import thumb2 from "@/asserts/thumb2.png"
+import thumb3 from "@/asserts/thumb3.png"
+import thumb4 from "@/asserts/thumb4.png"
 import a10 from "@/asserts/a10.jpeg"
 import fun1 from "@/asserts/fun1.jpeg"
 import fun2 from "@/asserts/fun2.jpeg"
@@ -23,11 +27,15 @@ import fun10 from "@/asserts/fun10.jpeg"
 import kid1 from "@/asserts/kid1.png"
 import kid2 from "@/asserts/kid2.png"
 import kid3 from "@/asserts/kid3.png"
+import vid1 from "@/asserts/vid1.mp4"
+import vid2 from "@/asserts/vid2.mp4"
+import vid3 from "@/asserts/vid3.mp4"
+import vid4 from "@/asserts/vid4.mp4"
 
 const sections = [
   {
-    title: "Intense Training",
-    images: ["/gallery1.jpg", "/gallery2.jpg", "/gallery3.jpg"],
+    title: "scoreCard",
+    images: [a6, a7, a8, a9],
   },
   {
     title: "Fun Time",
@@ -39,26 +47,26 @@ const sections = [
   },
   {
     title: "Achievements",
-    images: [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10],
+    images: [a1, a2, a3, a4, a5, a10],
   },
 ];
 // 🔥 VIDEO DATA
 const videoList = [
   {
-    thumb: "/video-thumb1.jpg",
-    src: "https://www.youtube.com/embed/o7FCTneI1cc",
+    thumb: thumb1,
+    src: vid1,
   },
   {
-    thumb: "/video-thumb2.jpg",
-    src: "https://www.youtube.com/embed/CuukjWkqT4Q",
+    thumb: thumb2,
+    src: vid2,
   },
   {
-    thumb: "/video-thumb3.jpg",
-    src: "https://www.youtube.com/embed/DwM7-N-dDZg",
+    thumb: thumb3,
+    src: vid3,
   },
   {
-    thumb: "/video-thumb4.jpg",
-    src: "https://www.youtube.com/embed/BRq1wByjfC4",
+    thumb: thumb4,
+    src: vid4,
   },
 ];
 
@@ -86,6 +94,99 @@ export default function Gallery() {
           Explore moments from Lomma Sports Club — training intensity, match highlights, and memories beyond cricket.
         </p>
       </motion.div>
+
+      {/* 🔥 SECTIONS */}
+      <div className="flex flex-col gap-20 relative z-10">
+
+        {sections.map((section, sIndex) => {
+          const imagesPerSlide = 3;
+
+          const slides = [];
+          for (let i = 0; i < section.images.length; i += imagesPerSlide) {
+            slides.push(section.images.slice(i, i + imagesPerSlide));
+          }
+
+          const current = slideIndex % slides.length;
+
+          return (
+            <motion.div
+              key={sIndex}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              {/* TITLE */}
+              <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-orange-400">
+                {section.title}
+              </h2>
+
+              {/* 🔥 SLIDER */}
+              <div className="relative">
+
+                {/* 🔥 SLIDES */}
+                <motion.div
+                  key={current}
+                  initial={{ opacity: 0, x: 60 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -60 }}
+                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+                >
+                  {slides[current].map((img, index) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ scale: 1.05 }}
+                      className="relative rounded-2xl cursor-pointer group bg-white/5 backdrop-blur-lg border border-white/10 flex items-center justify-center p-4 min-h-[260px]"
+                    >
+                      {/* IMAGE */}
+                      <img
+                        src={img}
+                        className="max-h-60 w-full object-contain transition duration-500 group-hover:scale-105"
+                      />
+
+                      {/* OVERLAY */}
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-2xl">
+                        <p className="text-white font-semibold">View Moment</p>
+                      </div>
+
+                      {/* BORDER */}
+                      <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-orange-400 transition" />
+                    </motion.div>
+                  ))}
+                </motion.div>
+
+                {/* 🔥 CONTROLS */}
+                <div className="flex justify-center gap-6 mt-8">
+
+                  <button
+                    onClick={() =>
+                      setSlideIndex((prev) =>
+                        prev === 0 ? slides.length - 1 : prev - 1
+                      )
+                    }
+                    className="px-6 py-2 rounded-full bg-white/10 hover:bg-orange-500 hover:text-black transition"
+                  >
+                    ← Prev
+                  </button>
+
+                  <button
+                    onClick={() =>
+                      setSlideIndex((prev) =>
+                        prev === slides.length - 1 ? 0 : prev + 1
+                      )
+                    }
+                    className="px-6 py-2 rounded-full bg-white/10 hover:bg-orange-500 hover:text-black transition"
+                  >
+                    Next →
+                  </button>
+
+                </div>
+
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -143,95 +244,7 @@ export default function Gallery() {
           </div>
         )}
       </motion.div>
-      {/* 🔥 SECTIONS */}
-      <div className="flex flex-col gap-20 relative z-10">
 
-        {sections.map((section, sIndex) => {
-          const imagesPerSlide = 3;
-
-          const slides = [];
-          for (let i = 0; i < section.images.length; i += imagesPerSlide) {
-            slides.push(section.images.slice(i, i + imagesPerSlide));
-          }
-
-          const current = slideIndex % slides.length;
-
-          return (
-            <motion.div
-              key={sIndex}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              {/* TITLE */}
-              <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-orange-400">
-                {section.title}
-              </h2>
-
-              {/* 🔥 SLIDER */}
-              <div className="relative">
-
-                {/* 🔥 SLIDES */}
-                <motion.div
-                  key={current}
-                  initial={{ opacity: 0, x: 60 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -60 }}
-                  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-                >
-                  {slides[current].map((img, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.05 }}
-                      className="relative overflow-hidden rounded-2xl cursor-pointer group bg-white/5 backdrop-blur-lg border border-white/10"
-                    >
-                      <img
-                        src={img}
-                        className="w-full h-64 object-cover transition duration-500 group-hover:scale-110"
-                      />
-
-                      {/* OVERLAY */}
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                        <p className="text-white font-semibold">View Moment</p>
-                      </div>
-
-                      <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-orange-400 transition" />
-                    </motion.div>
-                  ))}
-                </motion.div>
-
-                {/* 🔥 CONTROLS */}
-                <div className="flex justify-center gap-6 mt-8">
-
-                  <button
-                    onClick={() =>
-                      setSlideIndex((prev) =>
-                        prev === 0 ? slides.length - 1 : prev - 1
-                      )
-                    }
-                    className="px-6 py-2 rounded-full bg-white/10 hover:bg-orange-500 hover:text-black transition"
-                  >
-                    ← Prev
-                  </button>
-
-                  <button
-                    onClick={() =>
-                      setSlideIndex((prev) =>
-                        prev === slides.length - 1 ? 0 : prev + 1
-                      )
-                    }
-                    className="px-6 py-2 rounded-full bg-white/10 hover:bg-orange-500 hover:text-black transition"
-                  >
-                    Next →
-                  </button>
-
-                </div>
-
-              </div>
-            </motion.div>
-          );
-        })}
-      </div>
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
