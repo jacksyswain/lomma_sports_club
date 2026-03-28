@@ -276,13 +276,14 @@ export default function Home() {
         {/* Slider */}
         <div className="flex gap-6 overflow-x-auto scrollbar-hide">
           {[a1, a2, a3, a4].map((img, i) => (
-            <div key={i} className="min-w-[250px] bg-white rounded-xl shadow">
-
+            <div
+              key={i}
+              className="min-w-[260px] bg-white rounded-xl shadow flex items-center justify-center p-4"
+            >
               <img
                 src={img}
-                className="h-48 w-full object-cover rounded-t-xl"
+                className="h-48 w-full object-contain"
               />
-
             </div>
           ))}
         </div>
