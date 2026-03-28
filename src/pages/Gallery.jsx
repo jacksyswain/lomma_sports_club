@@ -1,6 +1,25 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-
+import a1 from "@/asserts/a1.png"
+import a2 from "@/asserts/a2.png"
+import a3 from "@/asserts/a3.png"
+import a4 from "@/asserts/a4.png"
+import a5 from "@/asserts/a5.jpeg"
+import a8 from "@/asserts/a8.jpeg"
+import a6 from "@/asserts/a6.jpeg"
+import a7 from "@/asserts/a7.jpeg"
+import a9 from "@/asserts/a9.jpeg"
+import a10 from "@/asserts/a10.jpeg"
+import fun1 from "@/asserts/fun1.jpeg"
+import fun2 from "@/asserts/fun2.jpeg"
+import fun3 from "@/asserts/fun3.jpeg"
+import fun4 from "@/asserts/fun4.jpeg"
+import fun5 from "@/asserts/fun5.jpeg"
+import fun6 from "@/asserts/fun6.jpeg"
+import fun7 from "@/asserts/fun7.jpeg"
+import fun8 from "@/asserts/fun8.jpeg"
+import fun9 from "@/asserts/fun9.jpeg"
+import fun10 from "@/asserts/fun10.jpeg"
 
 const sections = [
   {
@@ -9,7 +28,7 @@ const sections = [
   },
   {
     title: "Fun Time",
-    images: ["/gallery4.jpg", "/gallery5.jpg", "/gallery6.jpg"],
+    images: [fun1, fun2, fun3,fun4,fun5,fun6,fun7,fun8,fun9,fun10],
   },
   {
     title: "Kids Practice",
