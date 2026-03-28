@@ -27,6 +27,15 @@ import fun10 from "@/asserts/fun10.jpeg"
 import kid1 from "@/asserts/kid1.png"
 import kid2 from "@/asserts/kid2.png"
 import kid3 from "@/asserts/kid3.png"
+import kid4 from "@/asserts/kid4.png"
+import kid5 from "@/asserts/kid5.png"
+import kid6 from "@/asserts/kid6.png"
+import kid7 from "@/asserts/kid7.png"
+import kid8 from "@/asserts/kid8.png"
+import kid9 from "@/asserts/kid9.png"
+import kid10 from "@/asserts/kid10.png"
+import kid11 from "@/asserts/kid11.png"
+
 import vid1 from "@/asserts/vid1.mp4"
 import vid2 from "@/asserts/vid2.mp4"
 import vid3 from "@/asserts/vid3.mp4"
@@ -43,7 +52,7 @@ const sections = [
   },
   {
     title: "Kids Practice",
-    images: [kid1, kid2, kid3],
+    images: [kid1, kid2, kid3, kid4, kid5, kid6, kid7, kid8, kid9, kid10, kid11],
   },
   {
     title: "Achievements",
