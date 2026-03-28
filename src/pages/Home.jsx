@@ -16,6 +16,16 @@ import manager3 from "@/asserts/manager3.jpeg"
 import manager2 from "@/asserts/manager2.png"
 import manager5 from "@/asserts/manager5.jpeg"
 import manager6 from "@/asserts/manager6.jpeg"
+import fun1 from "@/asserts/fun1.jpeg"
+import fun2 from "@/asserts/fun2.jpeg"
+import fun3 from "@/asserts/fun3.jpeg"
+import fun4 from "@/asserts/fun4.jpeg"
+import fun5 from "@/asserts/fun5.jpeg"
+import fun6 from "@/asserts/fun6.jpeg"
+import fun7 from "@/asserts/fun7.jpeg"
+import fun8 from "@/asserts/fun8.jpeg"
+import fun9 from "@/asserts/fun9.jpeg"
+import fun10 from "@/asserts/fun10.jpeg"
 import hero1 from "@/asserts/hero1.png"
 import hero2 from "@/asserts/hero2.png"
 import hero3 from "@/asserts/hero3.png"
@@ -46,7 +56,7 @@ const images = [
 ];
 
 const boysImages = [
-  boys1, boys2, boys3, boys4, boys5, boys6
+  boys1, boys2, boys3, boys4, boys5, boys6,fun1, fun2, fun3,fun4,fun5,fun6,fun7,fun8,fun9,fun10
 ];
 
 export default function Home() {
