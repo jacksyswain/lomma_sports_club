@@ -35,8 +35,8 @@ const sections = [
     images: ["/gallery1.jpg", "/gallery3.jpg", "/gallery5.jpg"],
   },
   {
-    title: "Match Highlights",
-    images: ["/gallery2.jpg", "/gallery4.jpg", "/gallery6.jpg"],
+    title: "Achievements",
+    images: [a1, a2, a3, a4,a5,a6,a7,a8,a9,a10],
   },
 ];
 
