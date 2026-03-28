@@ -33,6 +33,13 @@ import a1 from "@/asserts/a1.png"
 import a2 from "@/asserts/a2.png"
 import a3 from "@/asserts/a3.png"
 import a4 from "@/asserts/a4.png"
+import a5 from "@/asserts/a5.jpeg"
+import a8 from "@/asserts/a8.jpeg"
+import a6 from "@/asserts/a6.jpeg"
+import a7 from "@/asserts/a7.jpeg"
+import a9 from "@/asserts/a9.jpeg"
+import a10 from "@/asserts/a10.jpeg"
+
 import { Facebook, Instagram, Mail } from "lucide-react";
 const images = [
   hero1, hero2, hero3, hero4, hero5
@@ -275,7 +282,7 @@ export default function Home() {
 
         {/* Slider */}
         <div className="flex gap-6 overflow-x-auto scrollbar-hide">
-          {[a1, a2, a3, a4].map((img, i) => (
+          {[a1, a2, a3, a4,a5,a6,a7,a8,a9,a10].map((img, i) => (
             <div
               key={i}
               className="min-w-[260px] bg-white rounded-xl shadow flex items-center justify-center p-4"
