@@ -56,7 +56,7 @@ const images = [
 ];
 
 const boysImages = [
-  boys1, boys2, boys3, boys4, boys5, boys6,fun1, fun2, fun3,fun4,fun5,fun6,fun7,fun8,fun9,fun10
+  boys1, boys2, boys3, boys4, boys5, boys6, fun1, fun2, fun3, fun4, fun5, fun6, fun7, fun8, fun9, fun10
 ];
 
 export default function Home() {
@@ -201,7 +201,7 @@ export default function Home() {
             </button>
 
             <button
-              onClick={() => navigate("/about")}
+              onClick={() => window.location.href = "mailto:haqnajam@gmail.com"}
               className="px-8 py-3 rounded-full border border-white hover:bg-white hover:text-black transition transform hover:scale-105"
             >
               Join Club
@@ -292,7 +292,7 @@ export default function Home() {
 
         {/* Slider */}
         <div className="flex gap-6 overflow-x-auto scrollbar-hide">
-          {[a1, a2, a3, a4,a5,a6,a7,a8,a9,a10].map((img, i) => (
+          {[a1, a2, a3, a4, a5, a6, a7, a8, a9, a10].map((img, i) => (
             <div
               key={i}
               className="min-w-[260px] bg-white rounded-xl shadow flex items-center justify-center p-4"
