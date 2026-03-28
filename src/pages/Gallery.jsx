@@ -194,7 +194,7 @@ export default function Gallery() {
         className="mt-20"
       >
         <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-orange-400">
-          Practice Matches
+          Video clips
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
