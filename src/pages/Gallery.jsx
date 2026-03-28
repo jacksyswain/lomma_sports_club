@@ -20,6 +20,9 @@ import fun7 from "@/asserts/fun7.jpeg"
 import fun8 from "@/asserts/fun8.jpeg"
 import fun9 from "@/asserts/fun9.jpeg"
 import fun10 from "@/asserts/fun10.jpeg"
+import kid1 from "@/asserts/kid1.png"
+import kid2 from "@/asserts/kid2.png"
+import kid3 from "@/asserts/kid3.png"
 
 const sections = [
   {
@@ -28,20 +31,40 @@ const sections = [
   },
   {
     title: "Fun Time",
-    images: [fun1, fun2, fun3,fun4,fun5,fun6,fun7,fun8,fun9,fun10],
+    images: [fun1, fun2, fun3, fun4, fun5, fun6, fun7, fun8, fun9, fun10],
   },
   {
     title: "Kids Practice",
-    images: ["/gallery1.jpg", "/gallery3.jpg", "/gallery5.jpg"],
+    images: [kid1, kid2, kid3],
   },
   {
     title: "Achievements",
-    images: [a1, a2, a3, a4,a5,a6,a7,a8,a9,a10],
+    images: [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10],
+  },
+];
+// 🔥 VIDEO DATA
+const videoList = [
+  {
+    thumb: "/video-thumb1.jpg",
+    src: "https://www.youtube.com/embed/o7FCTneI1cc",
+  },
+  {
+    thumb: "/video-thumb2.jpg",
+    src: "https://www.youtube.com/embed/CuukjWkqT4Q",
+  },
+  {
+    thumb: "/video-thumb3.jpg",
+    src: "https://www.youtube.com/embed/DwM7-N-dDZg",
+  },
+  {
+    thumb: "/video-thumb4.jpg",
+    src: "https://www.youtube.com/embed/BRq1wByjfC4",
   },
 ];
 
 export default function Gallery() {
   const [slideIndex, setSlideIndex] = useState(0);
+  const [activeVideo, setActiveVideo] = useState(null);
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white px-6 md:px-16 py-20 relative overflow-hidden">
 
@@ -63,7 +86,63 @@ export default function Gallery() {
           Explore moments from Lomma Sports Club — training intensity, match highlights, and memories beyond cricket.
         </p>
       </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="mt-20"
+      >
+        <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-orange-400">
+          Practice Matches
+        </h2>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          {videoList.map((video, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.03 }}
+              className="relative rounded-2xl overflow-hidden bg-white/5 backdrop-blur-lg border border-white/10 cursor-pointer group"
+              onClick={() => setActiveVideo(video.src)}
+            >
+
+              {/* THUMBNAIL */}
+              <img
+                src={video.thumb}
+                className="w-full h-64 md:h-80 object-cover group-hover:scale-110 transition duration-500"
+              />
+
+              {/* DARK OVERLAY */}
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition" />
+
+              {/* PLAY BUTTON */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                  ▶
+                </div>
+              </div>
+
+            </motion.div>
+          ))}
+
+        </div>
+
+        {/* 🔥 MODAL PLAYER */}
+        {activeVideo && (
+          <div
+            className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
+            onClick={() => setActiveVideo(null)}
+          >
+            <div className="w-[90%] md:w-[70%] aspect-video">
+              <iframe
+                src={activeVideo}
+                className="w-full h-full rounded-xl"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        )}
+      </motion.div>
       {/* 🔥 SECTIONS */}
       <div className="flex flex-col gap-20 relative z-10">
 
