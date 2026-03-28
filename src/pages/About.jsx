@@ -1,37 +1,29 @@
 import { motion } from "framer-motion";
+import kid9 from "@/asserts/kid9.png"
+import hero4 from "@/asserts/hero4.png"
+import banner from "@/asserts/banner.png"
 
 export default function About() {
   return (
     <div className="bg-black text-white">
 
       {/* 🔥 HERO SECTION */}
-      <section className="relative h-[70vh] flex items-center justify-center text-center overflow-hidden">
+      <section className="relative w-full h-[70vh] overflow-hidden">
+
         <img
-          src="/about-banner.jpg"
-          className="absolute w-full h-full object-cover"
+          src={banner}
+          className="absolute inset-0 w-full h-full object-cover object-[center_30%] scale-105"
         />
-        <div className="absolute inset-0 bg-black/70" />
 
-        <div className="relative z-10 px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent"
-          >
-            About Lomma Sports Club
-          </motion.h1>
+        
 
-          <p className="mt-6 text-gray-300 max-w-2xl mx-auto">
-            A professional cricket club shaping athletes, building legacy, and inspiring the next generation since 2020.
-          </p>
-        </div>
       </section>
 
       {/* 🏏 ABOUT CLUB */}
       <section className="py-20 px-6 md:px-16 grid md:grid-cols-2 gap-12 items-center">
 
         <motion.img
-          src="/team.jpg"
+          src={hero4}
           className="rounded-2xl shadow-xl"
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -120,7 +112,7 @@ export default function About() {
         </motion.div>
 
         <motion.img
-          src="/kids.jpg"
+          src={kid9}
           className="rounded-2xl shadow-xl"
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
