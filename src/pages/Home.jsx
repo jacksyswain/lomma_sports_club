@@ -596,7 +596,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* 🤝 PARTNERS */}
+      
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
