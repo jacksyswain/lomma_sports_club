@@ -603,6 +603,7 @@ export default function Home() {
         className="py-24 px-6 md:px-16 text-center bg-white via-gray-900 to-white text-black"
       >
         {/* 🔥 TITLE */}
+        {/* 🔥 TITLE */}
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           Our Partners
         </h2>
