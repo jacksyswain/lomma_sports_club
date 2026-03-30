@@ -537,16 +537,16 @@ export default function Teams() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white px-6 md:px-16 py-20 relative overflow-hidden">
 
-      {/* 🔥 BACKGROUND GLOW (same as Home feel) */}
+      {/*  BACKGROUND GLOW (same as Home feel) */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/20 blur-3xl rounded-full" />
       <div className="absolute bottom-20 right-10 w-72 h-72 bg-yellow-400/10 blur-3xl rounded-full" />
 
-      {/* 🔥 TITLE */}
+      {/*  TITLE */}
       <h1 className="text-4xl md:text-6xl font-extrabold text-center mb-12 bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent tracking-wide">
         Our Teams
       </h1>
 
-      {/* 🔥 TEAM SELECTOR */}
+      {/*  TEAM SELECTOR */}
       <div className="flex flex-wrap justify-center gap-4 mb-14">
         {teamsData.map((team, i) => (
           <button
@@ -563,12 +563,12 @@ export default function Teams() {
         ))}
       </div>
 
-      {/* 🔥 TEAM NAME */}
+      {/*  TEAM NAME */}
       <h2 className="text-2xl md:text-3xl font-semibold mb-10 text-center text-orange-400 tracking-wide">
         {teamsData[activeTeam].name}
       </h2>
 
-      {/* 🔥 CONTENT */}
+      {/* CONTENT */}
       <motion.div
         key={activeTeam}
         initial={{ opacity: 0, y: 40 }}
@@ -577,7 +577,7 @@ export default function Teams() {
         className="grid md:grid-cols-3 gap-8"
       >
 
-        {/* 🧑 PLAYERS */}
+        {/*  PLAYERS */}
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 h-[520px] flex flex-col shadow-2xl">
 
           <h3 className="text-lg font-semibold mb-4 sticky top-0 bg-black/60 backdrop-blur-md py-2 border-b border-white/10 z-10">
