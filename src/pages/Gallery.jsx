@@ -59,7 +59,7 @@ const sections = [
     images: [a1, a2, a3, a4, a5, a10],
   },
 ];
-// 🔥 VIDEO DATA
+//  VIDEO DATA
 const videoList = [
   {
     thumb: thumb1,
@@ -85,11 +85,11 @@ export default function Gallery() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white px-6 md:px-16 py-20 relative overflow-hidden">
 
-      {/* 🔥 BACKGROUND GLOW */}
+      {/*  BACKGROUND GLOW */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-orange-500/20 blur-3xl rounded-full" />
       <div className="absolute bottom-20 right-10 w-72 h-72 bg-yellow-400/10 blur-3xl rounded-full" />
 
-      {/* 🔥 HEADER */}
+      {/*  HEADER */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export default function Gallery() {
         </p>
       </motion.div>
 
-      {/* 🔥 SECTIONS */}
+      {/*  SECTIONS */}
       <div className="flex flex-col gap-20 relative z-10">
 
         {sections.map((section, sIndex) => {
@@ -129,10 +129,10 @@ export default function Gallery() {
                 {section.title}
               </h2>
 
-              {/* 🔥 SLIDER */}
+              {/*  SLIDER */}
               <div className="relative">
 
-                {/* 🔥 SLIDES */}
+                {/*  SLIDES */}
                 <motion.div
                   key={current}
                   initial={{ opacity: 0, x: 60 }}
@@ -163,7 +163,7 @@ export default function Gallery() {
                   ))}
                 </motion.div>
 
-                {/* 🔥 CONTROLS */}
+                {/*  CONTROLS */}
                 <div className="flex justify-center gap-6 mt-8">
 
                   <button
@@ -237,7 +237,7 @@ export default function Gallery() {
 
         </div>
 
-        {/* 🔥 MODAL PLAYER */}
+        {/*  MODAL PLAYER */}
         {activeVideo && (
           <div
             className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
