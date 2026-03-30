@@ -90,7 +90,7 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // 🎯 Parallax effect
+  //  Parallax effect
   const y = useTransform(scrollYProgress, [0, 1], [0, -200]);
 
   // 🎥 Video switch
@@ -111,14 +111,14 @@ export default function Home() {
         style={{
           position: "fixed",
 
-          // 🧭 X PATH (left → right → hit → back left)
+          //  X PATH (left → right → hit → back left)
           left: useTransform(
             scrollYProgress,
             [0, 0.4, 0.7, 1],
             ["10%", "70%", "90%", "10%"]
           ),
 
-          // 🧭 Y PATH (start → down → hit → bounce up)
+          //  Y PATH (start → down → hit → bounce up)
           top: useTransform(
             scrollYProgress,
             [0, 0.4, 0.7, 1],
@@ -141,13 +141,13 @@ export default function Home() {
           left: "80%",
           top: "75%",
 
-          // 💥 show only at impact moment
+          //  show only at impact moment
           scale: useTransform(scrollYProgress, [0.65, 0.7, 0.75], [0, 1.5, 0]),
           opacity: useTransform(scrollYProgress, [0.65, 0.7, 0.75], [0, 1, 0]),
         }}
       />
 
-      {/* 🔥 HERO */}
+      {/*  HERO */}
       <section className="relative h-screen w-full overflow-hidden">
 
         <AnimatePresence mode="wait">
@@ -213,13 +213,13 @@ export default function Home() {
 
 
 
-      {/* 🏏 TEAM */}
+      {/*  TEAM */}
       <motion.section
         initial={{ opacity: 0, x: -80 }}
         whileInView={{ opacity: 1, x: 0 }}
         className="py-20 px-6 md:px-16 grid md:grid-cols-2 gap-10 items-center bg-white text-black"
       >
-        {/* 🔥 LEFT - JERSEY SLIDER */}
+        {/*  LEFT - JERSEY SLIDER */}
         <div className="relative w-full h-[400px] md:h-[500px] flex items-center justify-center">
 
           {/* Glow */}
@@ -238,7 +238,7 @@ export default function Home() {
           </AnimatePresence>
         </div>
 
-        {/* 🔥 RIGHT - TEXT */}
+        {/*  RIGHT - TEXT */}
         <motion.div
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -408,7 +408,7 @@ export default function Home() {
           Club Management
         </h2>
 
-        {/* 🔥 GRID */}
+        {/*  GRID */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
 
           {[
@@ -493,7 +493,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* 🧑‍🏫 COACH */}
+      {/*  COACH */}
       <motion.section
         initial={{ opacity: 0, x: 80 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -505,14 +505,14 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
 
-          {/* 🔥 LEFT - IMAGE */}
+          {/*  LEFT - IMAGE */}
           <motion.img
             src={training}
             whileHover={{ scale: 1.05 }}
             className="w-full max-w-md mx-auto rounded-2xl shadow-xl object-cover"
           />
 
-          {/* 🔥 RIGHT - TEXT */}
+          {/* RIGHT - TEXT */}
           <div>
             <h3 className="text-2xl font-semibold mb-4 text-orange-500">
               Building Players. Building Champions.
@@ -538,13 +538,13 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* 📖 JOURNEY */}
+      {/* JOURNEY */}
       <motion.section
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         className="py-24 px-6 md:px-16 text-center bg-gradient-to-b from-black via-gray-900 to-black text-white"
       >
-        {/* 🔥 TITLE */}
+        {/*  TITLE */}
         <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-400 to-yellow-300 bg-clip-text text-transparent">
           Our Journey
         </h2>
@@ -554,7 +554,7 @@ export default function Home() {
           Lomma Sports Club has built its legacy through passion, unity, and relentless dedication.
         </p>
 
-        {/* 🔥 TIMELINE */}
+        {/*  TIMELINE */}
         <div className="grid md:grid-cols-3 gap-8">
 
           {[
@@ -602,8 +602,8 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         className="py-24 px-6 md:px-16 text-center bg-white via-gray-900 to-white text-black"
       >
-        {/* 🔥 TITLE */}
-        {/* 🔥 TITLE */}
+        {/*  TITLE */}
+      
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           Our Partners
         </h2>
@@ -613,7 +613,7 @@ export default function Home() {
           helping us grow and achieve excellence on and off the field.
         </p>
 
-        {/* 🔥 PARTNER CARDS */}
+        {/*  PARTNER CARDS */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
 
           {[partner1, partner2, partner3, partner4].map((img, i) => (
