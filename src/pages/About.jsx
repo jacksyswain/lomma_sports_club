@@ -7,7 +7,7 @@ export default function About() {
   return (
     <div className="bg-black text-white">
 
-      {/* 🔥 HERO SECTION */}
+      {/*  HERO SECTION */}
       <section className="relative w-full h-[70vh] overflow-hidden">
 
         <img
@@ -19,7 +19,7 @@ export default function About() {
 
       </section>
 
-      {/* 🏏 ABOUT CLUB */}
+      {/*  ABOUT CLUB */}
       <section className="py-20 px-6 md:px-16 grid md:grid-cols-2 gap-12 items-center">
 
         <motion.img
@@ -51,12 +51,12 @@ export default function About() {
           </p>
 
           <p className="text-orange-400 font-semibold">
-            Where Passion Meets Performance 🚀
+            Where Passion Meets Performance 
           </p>
         </motion.div>
       </section>
 
-      {/* 🏆 ACHIEVEMENTS */}
+      {/*  ACHIEVEMENTS */}
       <section className="py-20 px-6 md:px-16 bg-gradient-to-b from-gray-900 to-black text-center">
 
         <h2 className="text-4xl font-bold mb-12">
@@ -84,7 +84,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* 👶 NEXT GENERATION */}
+      {/*  NEXT GENERATION */}
       <section className="py-20 px-6 md:px-16 grid md:grid-cols-2 gap-12 items-center">
 
         <motion.div
@@ -107,7 +107,7 @@ export default function About() {
           </p>
 
           <p className="text-orange-400 font-semibold">
-            Future Stars Start Here ⭐
+            Future Stars Start Here 
           </p>
         </motion.div>
 
@@ -119,8 +119,8 @@ export default function About() {
         />
       </section>
 
-      {/* 📍 CONTACT SECTION */}
-      {/* 📍 CONTACT SECTION */}
+    
+      {/*  CONTACT SECTION */}
       <section className="py-24 px-6 md:px-16 bg-gradient-to-b from-black to-gray-900">
 
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
@@ -129,7 +129,7 @@ export default function About() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
 
-          {/* 📍 LOCATION + COMPANY INFO */}
+          {/*  LOCATION + COMPANY INFO */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -164,7 +164,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* 📩 CONTACT FORM */}
+          {/* CONTACT FORM */}
           <motion.form
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
