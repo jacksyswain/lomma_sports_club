@@ -623,7 +623,7 @@ export default function Teams() {
           </div>
         </div>
 
-        {/* 📅 UPCOMING MATCHES */}
+        {/* UPCOMING MATCHES */}
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 h-[520px] flex flex-col shadow-2xl">
 
           <h3 className="text-lg font-semibold mb-4 sticky top-0 bg-black/60 backdrop-blur-md py-2 border-b border-white/10 z-10">
