@@ -261,7 +261,7 @@ export default function Home() {
           </p>
 
           <p className="text-orange-500 font-semibold text-lg">
-            Where Passion Meets Performance 🚀
+            Where Passion Meets Performance .
           </p>
         </motion.div>
       </motion.section>
