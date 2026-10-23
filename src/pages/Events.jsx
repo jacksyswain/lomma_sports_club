@@ -1,15 +1,17 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
+
 import team1 from "@/asserts/team1.jpeg";
 import team2 from "@/asserts/team2.jpeg";
 import team3 from "@/asserts/team3.jpeg";
-import team4 from "@/asserts/team4.jpeg"
-import team5 from "@/asserts/team5.jpeg"
-import team6 from "@/asserts/team6.jpeg"
+import team4 from "@/asserts/team4.jpeg";
+import team5 from "@/asserts/team5.jpeg";
+import team6 from "@/asserts/team6.jpeg";
 import LPLRules from "./LPLRules";
-import eventhero from "@/asserts/eventhero.png"
+import eventhero from "@/asserts/eventhero.png";
 import {
   CalendarDays,
+   Clock,
   MapPin,
   Trophy,
   Users,
@@ -108,17 +110,53 @@ export default function Events() {
             <p className="mt-5 max-w-xl text-base leading-7 text-slate-200 sm:text-lg">
               Six teams. One trophy. A day of cricket, competition and community.
             </p>
+             
+            <div className="mt-7 grid grid-cols-1 gap-3 text-sm sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
+  {/* Date */}
+  <div className="group flex items-center gap-3 rounded-2xl border border-white/15 bg-[#080f2d]/70 px-4 py-4 shadow-lg backdrop-blur-md transition duration-300 hover:border-yellow-300/60 hover:bg-[#111b3d]/90">
+    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-300/10">
+      <CalendarDays className="h-5 w-5 text-yellow-300" />
+    </div>
+    <div className="min-w-0">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+        Tournament Date
+      </p>
+      <p className="mt-1 font-bold text-white">
+        31 October 2026
+      </p>
+    </div>
+  </div>
 
-            <div className="mt-7 flex flex-col gap-3 text-sm sm:flex-row sm:flex-wrap sm:gap-5">
-              <div className="flex items-center gap-3 rounded-xl border border-white/15 bg-[#080f2d]/65 px-4 py-3 backdrop-blur-md">
-                <CalendarDays className="h-5 w-5 shrink-0 text-yellow-300" />
-                <div><p className="text-xs uppercase tracking-wider text-slate-400">Date</p><p className="font-bold">31 October 2026</p></div>
-              </div>
-              <div className="flex items-center gap-3 rounded-xl border border-white/15 bg-[#080f2d]/65 px-4 py-3 backdrop-blur-md">
-                <MapPin className="h-5 w-5 shrink-0 text-yellow-300" />
-                <div><p className="text-xs uppercase tracking-wider text-slate-400">Venue</p><p className="font-bold">Slättängshallen Indoor Hall, Lomma</p></div>
-              </div>
-            </div>
+  {/* Start Time */}
+  <div className="group flex items-center gap-3 rounded-2xl border border-yellow-300/30 bg-[#080f2d]/80 px-4 py-4 shadow-lg backdrop-blur-md transition duration-300 hover:border-yellow-300/70 hover:bg-[#111b3d]/90">
+    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-300/15">
+      <Clock className="h-5 w-5 text-yellow-300" />
+    </div>
+    <div className="min-w-0">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+        Start Time
+      </p>
+      <p className="mt-1 font-extrabold text-yellow-300">
+        8:30 AM
+      </p>
+    </div>
+  </div>
+
+  {/* Venue */}
+  <div className="group flex items-center gap-3 rounded-2xl border border-white/15 bg-[#080f2d]/70 px-4 py-4 shadow-lg backdrop-blur-md transition duration-300 hover:border-yellow-300/60 hover:bg-[#111b3d]/90 sm:col-span-2 lg:col-span-1">
+    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-300/10">
+      <MapPin className="h-5 w-5 text-yellow-300" />
+    </div>
+    <div className="min-w-0">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+        Venue
+      </p>
+      <p className="mt-1 font-bold leading-5 text-white">
+        Slättängshallen Indoor Hall, Lomma
+      </p>
+    </div>
+  </div>
+</div>
 
             <button
               onClick={scrollToSchedule}
