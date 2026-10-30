@@ -17,6 +17,7 @@ import manager2 from "@/asserts/manager2.png"
 import manager5 from "@/asserts/manager5.jpeg"
 import manager6 from "@/asserts/manager6.jpeg"
 import manager7 from "@/asserts/manager7.jpeg"
+import manager8 from "@/asserts/manager8.png"
 import fun1 from "@/asserts/fun1.jpeg"
 import fun2 from "@/asserts/fun2.jpeg"
 import fun3 from "@/asserts/fun3.jpeg"
@@ -458,6 +459,13 @@ export default function Home() {
             {
               name: "Malyar Gholam",
               img: manager7,
+              fb: "#",
+              insta: "#",
+              mail: "mailto:test@gmail.com",
+            },
+            {
+              name: "Rohan Raghunath",
+              img: manager8,
               fb: "#",
               insta: "#",
               mail: "mailto:test@gmail.com",
