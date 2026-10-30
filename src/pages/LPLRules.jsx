@@ -48,7 +48,7 @@ const ruleSections = [
     icon: CircleDot,
     rules: [
       "A ball that hits the straight wall after bouncing or touches any part of the hall before hitting the straight wall is awarded 4 runs.",
-      "A ball that hits the straight wall directly is awarded 6 runs. If the ball touches the side wall before reaching the straight wall, it will not be considered a six.",
+      "A ball that hits the straight wall directly is awarded 6 runs. If the ball touches the side wall before reaching the straight wall, it will not be considered a Four.",
       "Apart from fours and sixes, runs may be scored by running between the wickets.",
       "Overthrows require the batters to run; no boundary runs will be awarded.",
       "If the ball hits the side wall and behind the keeper wall directly and is then caught by a fielder, the batter is out.",
