@@ -48,8 +48,29 @@ const fixtures = [
   { number: 13, home: "Gold Monks", away: "Lomma Serial Killers", stage: "League" },
   { number: 14, home: "Lund Warriors", away: "Bahubali Gang", stage: "League" },
   { number: 15, home: "Senior Citizens", away: "Malmo Super Kings", stage: "League" },
-  { number: 16, home: "2nd Place", away: "3rd Place", stage: "Playoffs", note: "Eliminator" },
-  { number: 17, home: "1st Place", away: "Winner of Match 16", stage: "Playoffs", note: "Final" },
+
+  // PLAYOFFS
+  {
+    number: 16,
+    home: "1st Place",
+    away: "3rd Place",
+    stage: "Playoffs",
+    note: "Qualifier 1"
+  },
+  {
+    number: 17,
+    home: "2nd Place",
+    away: "4th Place",
+    stage: "Playoffs",
+    note: "Qualifier 2"
+  },
+  {
+    number: 18,
+    home: "Winner of Match 16",
+    away: "Winner of Match 17",
+    stage: "Playoffs",
+    note: "Grand Final"
+  },
 ];
 
 
