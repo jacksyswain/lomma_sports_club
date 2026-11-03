@@ -11,7 +11,7 @@ import LPLRules from "./LPLRules";
 import eventhero from "@/asserts/eventhero.png";
 import {
   CalendarDays,
-   Clock,
+  Clock,
   MapPin,
   Trophy,
   Users,
@@ -50,26 +50,34 @@ const fixtures = [
   { number: 15, home: "Senior Citizens", away: "Malmo Super Kings", stage: "League" },
 
   // PLAYOFFS
+  // PLAYOFFS
   {
     number: 16,
-    home: "1st Place",
-    away: "3rd Place",
+    home: "Malmo Super Kings",
+    away: "Senior Citizens",
     stage: "Playoffs",
-    note: "Qualifier 1"
+    note: "Semi-Final 1",
+    status: "Completed",
+    winner: "Senior Citizens",
   },
   {
     number: 17,
-    home: "2nd Place",
-    away: "4th Place",
+    home: "Bahubali Gang",
+    away: "Lund Warriors",
     stage: "Playoffs",
-    note: "Qualifier 2"
+    note: "Semi-Final 2",
+    status: "Completed",
+    winner: "Bahubali Gang",
   },
   {
     number: 18,
-    home: "Winner of Match 16",
-    away: "Winner of Match 17",
+    home: "Bahubali Gang",
+    away: "Senior Citizens",
     stage: "Playoffs",
-    note: "Grand Final"
+    note: "Grand Final",
+    status: "Completed",
+    winner: "Bahubali Gang",
+    champion: "Bahubali Gang",
   },
 ];
 
@@ -131,53 +139,53 @@ export default function Events() {
             <p className="mt-5 max-w-xl text-base leading-7 text-slate-200 sm:text-lg">
               Six teams. One trophy. A day of cricket, competition and community.
             </p>
-             
+
             <div className="mt-7 grid grid-cols-1 gap-3 text-sm sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
-  {/* Date */}
-  <div className="group flex items-center gap-3 rounded-2xl border border-white/15 bg-[#080f2d]/70 px-4 py-4 shadow-lg backdrop-blur-md transition duration-300 hover:border-yellow-300/60 hover:bg-[#111b3d]/90">
-    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-300/10">
-      <CalendarDays className="h-5 w-5 text-yellow-300" />
-    </div>
-    <div className="min-w-0">
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-        Tournament Date
-      </p>
-      <p className="mt-1 font-bold text-white">
-        31 October 2026
-      </p>
-    </div>
-  </div>
+              {/* Date */}
+              <div className="group flex items-center gap-3 rounded-2xl border border-white/15 bg-[#080f2d]/70 px-4 py-4 shadow-lg backdrop-blur-md transition duration-300 hover:border-yellow-300/60 hover:bg-[#111b3d]/90">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-300/10">
+                  <CalendarDays className="h-5 w-5 text-yellow-300" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    Tournament Date
+                  </p>
+                  <p className="mt-1 font-bold text-white">
+                    31 October 2026
+                  </p>
+                </div>
+              </div>
 
-  {/* Start Time */}
-  <div className="group flex items-center gap-3 rounded-2xl border border-yellow-300/30 bg-[#080f2d]/80 px-4 py-4 shadow-lg backdrop-blur-md transition duration-300 hover:border-yellow-300/70 hover:bg-[#111b3d]/90">
-    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-300/15">
-      <Clock className="h-5 w-5 text-yellow-300" />
-    </div>
-    <div className="min-w-0">
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-        Start Time
-      </p>
-      <p className="mt-1 font-extrabold text-yellow-300">
-        8:30 AM
-      </p>
-    </div>
-  </div>
+              {/* Start Time */}
+              <div className="group flex items-center gap-3 rounded-2xl border border-yellow-300/30 bg-[#080f2d]/80 px-4 py-4 shadow-lg backdrop-blur-md transition duration-300 hover:border-yellow-300/70 hover:bg-[#111b3d]/90">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-300/15">
+                  <Clock className="h-5 w-5 text-yellow-300" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    Start Time
+                  </p>
+                  <p className="mt-1 font-extrabold text-yellow-300">
+                    8:30 AM
+                  </p>
+                </div>
+              </div>
 
-  {/* Venue */}
-  <div className="group flex items-center gap-3 rounded-2xl border border-white/15 bg-[#080f2d]/70 px-4 py-4 shadow-lg backdrop-blur-md transition duration-300 hover:border-yellow-300/60 hover:bg-[#111b3d]/90 sm:col-span-2 lg:col-span-1">
-    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-300/10">
-      <MapPin className="h-5 w-5 text-yellow-300" />
-    </div>
-    <div className="min-w-0">
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
-        Venue
-      </p>
-      <p className="mt-1 font-bold leading-5 text-white">
-        Slättängshallen Indoor Hall, Lomma
-      </p>
-    </div>
-  </div>
-</div>
+              {/* Venue */}
+              <div className="group flex items-center gap-3 rounded-2xl border border-white/15 bg-[#080f2d]/70 px-4 py-4 shadow-lg backdrop-blur-md transition duration-300 hover:border-yellow-300/60 hover:bg-[#111b3d]/90 sm:col-span-2 lg:col-span-1">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-yellow-300/10">
+                  <MapPin className="h-5 w-5 text-yellow-300" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">
+                    Venue
+                  </p>
+                  <p className="mt-1 font-bold leading-5 text-white">
+                    Slättängshallen Indoor Hall, Lomma
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <button
               onClick={scrollToSchedule}
@@ -195,8 +203,8 @@ export default function Events() {
         {[
           { icon: Users, value: "06", label: "Participating teams" },
           { icon: CalendarDays, value: "15", label: "League matches" },
-          { icon: Trophy, value: "02", label: "Playoff matches" },
-          { icon: Flag, value: "17", label: "Total fixtures" },
+          { icon: Trophy, value: "03", label: "Playoff matches" },
+          { icon: Flag, value: "18", label: "Total fixtures" },
         ].map(({ icon: Icon, value, label }) => (
           <div key={label} className="rounded-2xl border border-yellow-300/20 bg-white/[0.035] p-4 sm:p-5">
             <Icon className="mb-3 h-5 w-5 text-yellow-300" />
@@ -252,28 +260,98 @@ export default function Events() {
                 key={match.number}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.22, delay: index * 0.015 }}
-                className="rounded-2xl border border-yellow-300/25 bg-[#080f2d] p-4 transition hover:border-yellow-300/60 sm:p-5"
+                transition={{ duration: 0.3 }}
+                className={`relative overflow-hidden rounded-2xl border p-4 sm:p-5 transition-all duration-300 ${match.champion
+                    ? "border-yellow-400 bg-gradient-to-br from-[#332807] via-[#111a3b] to-[#080f2d] shadow-lg shadow-yellow-400/10"
+                    : "border-yellow-300/20 bg-[#080f2d] hover:border-yellow-300/60"
+                  }`}
               >
-                <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-                  <span className="text-xs font-black uppercase tracking-[0.16em] text-yellow-300">
-                    {match.note ? `Match ${match.number} · ${match.note}` : `Match ${match.number}`}
+                {/* MATCH HEADER */}
+                <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+
+                  <div>
+                    <span className="text-xs font-black uppercase tracking-widest text-yellow-300">
+                      Match {match.number}
+                    </span>
+
+                    <h3 className="mt-1 font-bold text-white">
+                      {match.note || "League Match"}
+                    </h3>
+                  </div>
+
+                  <span className="rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 text-xs font-bold text-green-400">
+                    {match.status || "Completed"}
                   </span>
-                  <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                    {match.stage === "League" ? "League stage" : "Playoffs"}
-                  </span>
+
                 </div>
+
+                {/* TEAMS */}
                 <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-5">
-                  <div className="flex min-w-0 flex-col items-center gap-2 text-center sm:flex-row sm:gap-3 sm:text-left">
-                    {teams.some((team) => team.name === match.home) ? <TeamLogo name={match.home} size="small" /> : <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-yellow-300/30 bg-yellow-300/10"><Trophy className="h-5 w-5 text-yellow-300" /></div>}
-                    <span className="text-xs font-bold leading-snug text-white sm:text-sm">{match.home}</span>
+
+                  {/* HOME */}
+                  <div className="flex min-w-0 flex-col items-center gap-3 text-center">
+
+                    <TeamLogo name={match.home} size="normal" />
+
+                    <span className="text-sm font-bold text-white">
+                      {match.home}
+                    </span>
+
+                    {match.winner === match.home && (
+                      <span className="text-xs font-bold text-green-400">
+                        <Trophy className="mr-1 inline h-4 w-4" />
+                        Winner
+                      </span>
+                    )}
+
                   </div>
-                  <span className="rounded-lg bg-white/[0.06] px-2 py-1 text-[10px] font-black uppercase tracking-wider text-yellow-300 sm:px-3 sm:text-xs">VS</span>
-                  <div className="flex min-w-0 flex-col items-center gap-2 text-center sm:flex-row-reverse sm:gap-3 sm:text-right">
-                    {teams.some((team) => team.name === match.away) ? <TeamLogo name={match.away} size="small" /> : <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-yellow-300/30 bg-yellow-300/10"><Trophy className="h-5 w-5 text-yellow-300" /></div>}
-                    <span className="text-xs font-bold leading-snug text-white sm:text-sm">{match.away}</span>
+
+                  {/* VS */}
+                  <div className="rounded-xl border border-yellow-300/20 bg-yellow-300/10 px-3 py-2 text-xs font-black text-yellow-300">
+                    VS
                   </div>
+
+                  {/* AWAY */}
+                  <div className="flex min-w-0 flex-col items-center gap-3 text-center">
+
+                    <TeamLogo name={match.away} size="normal" />
+
+                    <span className="text-sm font-bold text-white">
+                      {match.away}
+                    </span>
+
+                    {match.winner === match.away && (
+                      <span className="text-xs font-bold text-green-400">
+                        <Trophy className="mr-1 inline h-4 w-4" />
+                        Winner
+                      </span>
+                    )}
+
+                  </div>
+
                 </div>
+
+                {/* CHAMPION */}
+                {match.champion && (
+                  <div className="mt-5 rounded-xl border border-yellow-400/30 bg-yellow-400/10 p-4 text-center">
+
+                    <Trophy className="mx-auto mb-2 h-8 w-8 text-yellow-300" />
+
+                    <p className="text-xs font-bold uppercase tracking-widest text-yellow-300">
+                      LPL 2026 Champions
+                    </p>
+
+                    <h3 className="mt-2 text-xl font-black text-white sm:text-2xl">
+                      {match.champion}
+                    </h3>
+
+                    <p className="mt-1 text-xs text-yellow-100/70">
+                      Congratulations on winning the tournament!
+                    </p>
+
+                  </div>
+                )}
+
               </motion.article>
             ))}
           </div>
@@ -282,9 +360,9 @@ export default function Events() {
       </section>
 
       {/* EVENT DETAILS */}
-      
-        <LPLRules />
-     
+
+      <LPLRules />
+
 
       {/* CTA */}
       <section className="px-5 pb-16 sm:px-8 sm:pb-20 lg:px-12">
